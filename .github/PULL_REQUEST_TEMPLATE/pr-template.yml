@@ -1,0 +1,53 @@
+name: Pull Request
+description: Create a pull request to merge your additions into the main repository.
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for submitting a pull request! Please provide the following information to help us review your changes.
+  # Can be added with GitHub actions
+  # - type: input
+  #   id: date
+  #   attributes:
+  #     label: Date
+  #     description: The date you are submitting the pull request.
+  #     placeholder: YYYY-MM-DD
+  #     required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: A brief summary of the changes you made.
+      placeholder: Add a title
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      description: The type of changes you made.
+      options:
+        - build
+        - feature
+        - bugfix
+        - documentation
+        - performance
+        - refactor
+        - test
+        - chore
+      required: true
+
+  - type: textarea
+    id: changes
+    attributes:
+      placeholder: Describe the changes you made prefixing each with a [tag](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please check all that apply.
+      options:
+        - label: I have read the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+          required: true
+        - label: I have reda the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file.
+          required: true
