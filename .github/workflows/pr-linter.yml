@@ -31,4 +31,4 @@ jobs:
                 GH_TOKEN: ${{ secrets.GH_TOKEN }}
                 GH_REPOSITORY: ${{ github.repository }}
               run: |
-                python ${{ env.SCRIPT_FOLDER }}/main.py --pr ${{ github.event.pull_request.number }} --github
+                python ${{ env.SCRIPT_FOLDER }}/src/main.py --pr ${{ github.event.pull_request.number }} --github
