@@ -1,5 +1,10 @@
-# Description
+## Description
 <!--- Describe your changes in detail -->
+
+[//]: <> (asdfadsf)
+[//]: <> "asdfadsf"
+[//]: # (asdfadsf)
+[//]: # "asdfadsf"
 
 ## Affects:
 <!--- What games does this PR affect? -->
@@ -18,11 +23,11 @@
 ## Authors:
 <!--- Name additional authors here -->
 
-## Fixes Issue(s)?: <!--- Optional -->
+## Fixes Issue(s): <!--- Optional -->
 <!---Link to the issue that this PR fixes -->
 
-## PRs Update?: <!--- Optional -->
+## PRs Update: <!--- Optional -->
 <!---Link to another PR that this PR is updating -->
 
-## Additional Notes?: <!--- Optional -->
+## Additional Notes: <!--- Optional -->
 <!---Add screenshots, videos, tables or any additional information not relevant for the changelog here: -->
