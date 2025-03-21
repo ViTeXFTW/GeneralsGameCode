@@ -4,6 +4,7 @@
 !.gitattributes
 !.github
 
+__pycache__
 *.user
 *.ncb
 /build*
