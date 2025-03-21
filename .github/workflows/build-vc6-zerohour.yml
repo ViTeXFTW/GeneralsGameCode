@@ -2,8 +2,6 @@ name: Build Zero Hour with VC6
 
 on:
   push:
-    branches:
-      - main
     paths:
       - "GeneralsMD/**"
       - "Dependencies/**"
@@ -13,8 +11,6 @@ on:
       - ".github/workflows/build-vc6-zerohour.yml"
       - ".github/workflows/build-vc6-common.yml"
   pull_request:
-    branches:
-      - main
     paths:
       - "GeneralsMD/**"
       - "Dependencies/**"

@@ -2,8 +2,6 @@ name: Build Generals with VC6
 
 on:
   push:
-    branches:
-      - main
     paths:
       - "Generals/**"
       - "Dependencies/**"
@@ -13,8 +11,6 @@ on:
       - ".github/workflows/build-vc6-generals.yml"
       - ".github/workflows/build-vc6-common.yml"
   pull_request:
-    branches:
-      - main
     paths:
       - "Generals/**"
       - "Dependencies/**"
