@@ -3,7 +3,7 @@ name: PR Linter
 on:
     pull_request:
         branches: [ main ]
-        types: [ opened, synchronize, reopened ]
+        types: [ opened, synchronize, reopened, edited ]
 
 env:
     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
