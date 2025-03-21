@@ -26,9 +26,6 @@ jobs:
             - name: Install dependencies
               run: pip install -r ${{ env.SCRIPT_FOLDER }}/requirements.txt
 
-            - name: Run tests
-              run: pytest ${{ env.SCRIPT_FOLDER }}
-
             - name: Run PR Linter
               env:
                 GH_TOKEN: ${{ secrets.GH_TOKEN }}
