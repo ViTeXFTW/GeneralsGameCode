@@ -1,0 +1,37 @@
+name: PR Linter
+
+on:
+    pull_request:
+        branches: [ main ]
+        types: [ opened, synchronize, reopened ]
+
+env:
+    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    GH_REPOSITORY: ${{ github.repository }}
+    SCRIPT_FOLDER: .github/workflows/scripts/changelog/pr-linter
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set Up Python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: '3.x'
+
+            - name: Install dependencies
+              run: pip install -r ${{ github.env.SCRIPT_FOLDER }}/requirements.txt
+
+            - name: Run tests
+              run: pytest 
+
+            - name: Run PR Linter
+              env:
+                GH_TOKEN: ${{ secrets.GH_TOKEN }}
+                GH_REPOSITORY: ${{ github.repository }}
+              run: |
+                python ${{ env.SCRIPT_FOLDER }}/main.py --pr ${{ github.event.pull_request.number }} --github
