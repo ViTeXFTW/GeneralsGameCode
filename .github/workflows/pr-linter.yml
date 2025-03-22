@@ -1,9 +1,10 @@
 name: PR Linter
 
 on:
-    pull_request:
-        branches: [ main ]
-        types: [ opened, synchronize, reopened, edited ]
+    workflow_dispatch
+    # pull_request:
+    #     branches: [ main ]
+    #     types: [ opened, synchronize, reopened, edited ]
 
 env:
     SCRIPT_FOLDER: .github/workflows/scripts/changelog/pr-linter
