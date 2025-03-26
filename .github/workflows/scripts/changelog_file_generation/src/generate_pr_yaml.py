@@ -1,7 +1,6 @@
 import argparse
 import re
 import yaml
-import shutil
 from pathlib import Path
 from github import Github, Auth, PullRequest, Repository
 from datetime import datetime
