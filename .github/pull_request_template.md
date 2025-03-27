@@ -1,3 +1,4 @@
+<!-- Read https://github.com/ViTeXFTW/GeneralsGameCode/tree/main/documentation/how_to_write_a_pull_request.md -->
 ## Change list
 <!-- List changes -->
 - 
