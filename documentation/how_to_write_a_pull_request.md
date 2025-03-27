@@ -12,7 +12,7 @@ This document will provide a brief overview of the different fields, and what ke
   - [Optional Fields](#optional-fields)
     - [Author(s)](#authors)
     - [Fixes Issue(s)](#fixes-issues)
-    - [Updates Issue(s)](#updates-issues)
+    - [Updates PR(s)](#updates-prs)
     - [Additional Notes](#additional-notes)
 
 
@@ -123,27 +123,26 @@ Fixes Issue(s)
 - Closes #124
 ```
 
-### Updates Issue(s)
+### Updates PR(s)
 If a pull request is updating another pull request, or is a direct continuation of another, it should be listed here. The format is as follows:
 ```
-- <Task> #<Issue Number>
+- <Task> #<PR Number>
 ```
-Where `<Task>` is the GitHub keyword for updating an issue. The following keywords are available:
+Where `<Task>` is the GitHub keyword for updating a PR. The following keywords are available:
 - `Updates` = `Updates an issue`
 - `Continues` = `Continues an issue`
 
-And `<Issue Number>` is the number of the issue that is being updated. If there are multiple issues, they should be listed in their own bullet point.
+And `<PR Number>` is the number of the PR that is being updated. If there are multiple PRs, they should be listed in their own bullet point.
 
 **Example**
 ```
-Updates Issue(s)
+Updates PR(s)
 - Updates #123
 ```
 ```
-Updates Issue(s)
+Updates PR(s)
 - Continues #123
 ```
-
 
 ### Additional Notes
 Lastly in the additional notes section, any additional information that is not related to the changelog can be added. This can be anything from additional information about the pull request, to notes about the changes made.

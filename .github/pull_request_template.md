@@ -9,7 +9,7 @@
 ## Fixes Issue(s) <!-- [Optional - Remove if unused] -->
 <!-- Closes/Fixes/Resolves an issue (#123) -->
 
-## Updates Issue(s) <!-- [Optional - Remove if unused] -->
+## Updates PR(s) <!-- [Optional - Remove if unused] -->
 <!-- Updates/Continues a PR (#234) -->
 
 ## Additional Notes <!-- [Optional - Remove if unused] -->
