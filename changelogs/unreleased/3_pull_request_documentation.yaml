@@ -1,0 +1,18 @@
+date: '2025-03-27'
+title: Pull request documentation
+affects:
+  - GITHUB
+changes:
+  - docs: Added [`How To Write A Pull 
+      Request`](https://github.com/ViTeXFTW/GeneralsGameCode/pull/3/files#diff-41d5a03d44adab5bf84420ba843b1148eff016fd67e734fd4baddafcfd8f5794)
+      document
+  - docs: Linked to documentation in PR template
+labels:
+  - documentation
+links:
+  - https://github.com/ViTeXFTW/GeneralsGameCode/pull/3
+authors:
+  - ViTeXFTW
+updates_prs:
+  - action: updates
+    link: https://github.com/ViTeXFTW/GeneralsGameCode/pull/1
