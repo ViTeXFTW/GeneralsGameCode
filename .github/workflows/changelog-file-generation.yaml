@@ -5,26 +5,20 @@ on:
 
   workflow_dispatch:
     inputs:
-        pr_number:
-            description: 'Pull Request Number'
-            type: number
-            required: true
-            default: 0
-        force:
-            description: 'Force run even if PR is not merged'
-            type: choice
-            required: false
-            default: ''
-            options:
-                - '--force'
+      pr-number:
+        description: 'PR number to process'
+        required: true
+        type: number
 
 env:
     SCRIPTS_PATH: .github/workflows/scripts/changelog_file_generation
-    CONFIG_PATH: .github/workflows/scripts/changelog_file_generation/pr_changelog_config.yaml
+    CONFIG: pr_changelog_config.yaml
 
 jobs:
-  process-merged-pr:
-    if: github.event.pull_request.merged
+  process-pr:
+    if: |
+      github.event_name == 'workflow_dispatch' || 
+      (github.event_name == 'pull_request' && github.event.pull_request.merged)
     runs-on: ubuntu-latest
 
     steps:
@@ -43,18 +37,26 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r ${{ env.SCRIPTS_PATH }}/requirements.txt
 
-    - name: Run changelog generator
+    - name: Determine PR number
+      id: pr-number
       run: |
-        python generate_pr_yaml.py \
-          --pr-number ${{ github.event.pull_request.number }} \
-          --repo ${{ github.repository }} \
-          --token ${{ secrets.GITHUB_TOKEN }} \
-          --config ${{ env.CONFIG_PATH }} \
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+        echo "pr_number=${{ github.event.inputs.pr-number }}" >> $GITHUB_OUTPUT
+        else
+        echo "pr_number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Run changelog generator
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_REPOSITORY: ${{ github.repository }}
+      run: |
+        python ${{ env.SCRIPTS_PATH}}/src/generate_pr_yaml.py --pr-number ${{ steps.pr-number.outputs.pr_number }} --config ${{ env.CONFIG }} --force
 
     - name: Commit generated files
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git add changelogs/unreleased/*
-        git commit -m "Add changelog for PR #${{ github.event.pull_request.number }}" || echo "No changes to commit"
+        git commit -m "Add changelog for PR #${{ steps.pr-number.outputs.pr_number }}" || echo "No changes to commit"
         git push
