@@ -1,0 +1,13 @@
+date: '2025-03-27'
+title: Added PR template and changelog script
+affects:
+  - GITHUB
+changes:
+  - docs: Added PR template
+  - ci: changelog entry file generator
+labels:
+  - documentation
+links:
+  - https://github.com/ViTeXFTW/GeneralsGameCode/pull/1
+authors:
+  - ViTeXFTW
