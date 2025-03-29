@@ -40,5 +40,8 @@ jobs:
           fi
 
       - name: Run PR Linter
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPOSITORY: ${{ github.repository }}
         run: |
           python ${{ env.SCRIPTS_PATH}}/src/pr_linter.py --pr-number ${{ steps.pr-number.outputs.pr_number }}
