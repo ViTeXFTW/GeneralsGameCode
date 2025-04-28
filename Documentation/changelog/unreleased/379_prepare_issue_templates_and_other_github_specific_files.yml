@@ -1,0 +1,15 @@
+date: 2025-03-06
+labels:
+  - Documentation
+  - Security
+affects:
+  - GITHUB
+changes:
+  - [GITHUB] Begin creating issue templates (50b069be1358a4540864c1e5085dd0a5bed50c29)
+  - [GITHUB] Add SECURITY.md (f61ecca6e847f7a738030cb0f79e270b4f53b5f2)
+  - [GITHUB] Update issues to split Zero Hour and Generals as original games (Bugs present in one may not be present in the other) (6da5c48a24f38b7cfe4799f62ebd9d03498b9682)
+  - [GITHUB] Update .github/ISSUE_TEMPLATE/config.yml (8a7b7b2a9ba7dbf85fc62e4c1cbe12d32da71d18)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/379
+authors:
+  - @Generalcamo
