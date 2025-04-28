@@ -1,0 +1,17 @@
+date: 2025-03-25
+labels:
+  - Build
+  - CompileBug
+  - Generals
+  - Minor
+  - Refactor
+  - ZeroHour
+affects:
+  - GEN
+  - ZH
+changes:
+  - [GEN][ZH] Fix file name case in includes (b8d5e88358d460952d97dab2e0bfeba3e3341eb9)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/347
+authors:
+  - @zzambers
