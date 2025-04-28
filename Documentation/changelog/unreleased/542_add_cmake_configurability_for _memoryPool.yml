@@ -1,0 +1,15 @@
+date: 2025-03-31
+labels:
+  - Debug
+  - Major
+  - Performance
+affects:
+  - GEN
+  - ZH
+changes:
+  - [GEN][ZH] Move cmake config setup into config.cmake (9c470b7ddacaa16a6d67251f704ef808ebbc7804)
+  - [GEN][ZH] Add cmake configurability for MemoryPool features and debugs, disable slow stack trace (0a414105ae41973d4639cbaa3b200519fd55f4fb)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/542
+authors:
+  - @xezon
