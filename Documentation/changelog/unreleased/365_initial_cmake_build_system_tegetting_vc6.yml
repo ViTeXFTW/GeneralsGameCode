@@ -1,0 +1,14 @@
+date: 2025-03-15
+labels:
+  - Build
+  - ZeroHour
+affects: 
+  - CMAKE
+changes:
+  - [GITHUB] Add top level gitignore. (437c822b821f1a5a0336f3dc202431eada31bfa5)
+  - [CMAKE] Implements CMake build system. (db8ced10d90c55bd6754322236d606bd874d021e)
+  - [CMAKE] Minimal changes for successful build. (40b28ed2b4d0c0950a27e1523b7619b12d04c857)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/365
+authors:
+  - @OmniBlade
