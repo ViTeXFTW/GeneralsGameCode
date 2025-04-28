@@ -1,0 +1,11 @@
+date: 2025-03-06
+labels:
+  - Documentation
+affects:
+  - GITHUB
+changes:
+  - [GITHUB] Allow blank issues (40bcc4e63d72479f02edbd098729408a8c92a2be)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/388
+authors:
+  - @Generalcamo
