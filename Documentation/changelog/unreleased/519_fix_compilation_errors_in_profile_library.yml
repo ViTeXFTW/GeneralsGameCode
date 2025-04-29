@@ -1,0 +1,12 @@
+date: 2025-03-27
+labels:
+  - Build
+  - Minor
+affects:
+  - ZH
+changes:
+  - [ZH] Fix: Compilation errors in profile library (6c7b6af028204e73c4f02e981ad4d851edc8197d)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/519
+authors:
+  - @xezon
