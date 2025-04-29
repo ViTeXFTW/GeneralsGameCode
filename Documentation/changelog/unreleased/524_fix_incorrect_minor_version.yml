@@ -1,0 +1,13 @@
+date: 2025-03-28
+labels:
+  - Bug
+  - Build
+  - ThisProject
+affects:
+  - GEN
+changes:
+  - [GEN] Fixing incorrect minor version (c1bad2fdf3bb8260d98196e87591783b90a315e1)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/524
+authors:
+  - @roossienb
