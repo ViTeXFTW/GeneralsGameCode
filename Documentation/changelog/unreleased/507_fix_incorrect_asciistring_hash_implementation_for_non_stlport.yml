@@ -1,0 +1,13 @@
+date: 2025-03-25
+labels:
+  - Build
+  - Generals
+  - Major
+affects:
+  - GEN
+changes:
+  - [GEN] Fix incorrect AsciiString hash implementation for non-stlport (c9945cd8d9aeb1d19a900e072d4ef5b97a74c5a3)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/507
+authors:
+  - @Mauller
