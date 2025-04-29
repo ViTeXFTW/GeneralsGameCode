@@ -1,0 +1,15 @@
+date: 2025-03-28
+labels:
+  - Build
+  - Minor
+affects:
+  - ZH
+changes:
+  - [ZH] Add extras tools to toolchain-common.yml (5bf26014b2b315984feb132cc2749459b58638bb)
+  - [ZH] Readd strstrea.h (d53918657c7b2e5e0230aa6ff0882be9011c85ce)
+  - [ZH] Add sstream_adapter.h (f9ae4884ca3b6e36260bb4203d7183893d5350a6)
+  - [ZH] Rename macro to STRSTREM_CSTR (45efed861c38c32965969f97fbb8b53c04a5315e)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/532
+authors:
+  - @xezon
