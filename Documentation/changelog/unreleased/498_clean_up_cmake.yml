@@ -1,0 +1,20 @@
+date: 2025-03-26
+labels:
+  - Build
+  - Generals
+  - ZeroHour
+affects:
+  - GEN
+  - ZH
+changes:
+  - [CMake] Stop features being printed out 3 times. (037b7c76e3095fb06d63e76f939eaef78211eeaf)
+  - [CMake] Fix deprecation warning in benchmark stub. (40e6d0a9ea2cc47b072a030d2a26fb02724b3d7d)
+  - [GEN][ZH] Remove "pragma comment" implict linker instructions. (e024113fd88ef1cd615a36e2bf4348b125ef7a0f)
+  - [CMake] Move compiler configuration to its own cmake file. (f88f15f7b6ac760b016892037b8e095c84392c24)
+  - [CMake] Refactor CMake build config options. (f9aafa782214ffd4c3ac0cabd23a4d0d247fa973)
+  - [CMake] Remove unused code from lzhl library build. (13689ffa74aef95118f414e3c0d6004194df6ad2)
+  - [CMake] Split tools into useful and extra. (8ca02a00363ed199af954081fb77b7341e60878d)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/498
+authors:
+  - @OmniBlade
