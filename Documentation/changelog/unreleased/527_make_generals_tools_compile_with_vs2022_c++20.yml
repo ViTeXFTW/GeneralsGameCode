@@ -1,0 +1,26 @@
+date: 2025-03-28
+labels:
+  - Build
+  - Generals
+  - Major
+  - Tools
+affects:
+  - GEN
+changes:
+  - [GEN] Fix constness errors for Generals Tools build (61702914bf37e859cc3fcf780c79fd682edd9426)
+  - [GEN] Fix dependent name errors for Generals Tools build (7ddf246ae230b0f011ff90c105dda414dd69326c)
+  - [GEN] Prevent including d3d9types.h via afxwin.h for Generals Tools build (a8c4e1eeca6c583610995c7bce916fac15610d8f)
+  - [GEN] Fix type declaration scope issues for Generals Tools build (6f2070d76630a5a484d6ad63a5d7007328653028)
+  - [GEN] Fix type mismatch errors for Generals Tools build (817722bce04e1e522f6d7f2b685af0416d71f713)
+  - [GEN] Fix incompatible function calls of std::vector, std::string, CString for Generals Tools build (bacb1444ef524ffb2bab4fafb01830a2088fa5b5)
+  - [GEN] Fix c++20 keyword conflicts for Generals Tools build (b80b5624d1aed04b8678b088074bde7c27ee55de)
+  - [GEN] Fix hash_map errors for Generals Tools build (e859575d52c81b79a5b02455f16e8bfb899fe6af)
+  - [GEN] Fix iostream errors for Generals Tools build (a191606f1723c8f367f9ea496115f58e6a557786)
+  - [GEN] Fix fstream include errors for Generals Tools build (de91700964249159655d54ba9634a400b77311a6)
+  - [GEN] Fix misc and header include errors for Generals Tools build (a802c202a6c74410d2e264c77e6e633af36d8753)
+  - [GEN] Upgrade Generals Tools to c++20 (e7957364e97c8f16c08d524d57f2b4923a0f9da9)
+  - [GEN] Fix stringstream for Generals Tools build (5d1f505cdd7ca1bad862414bba77b81f94a506d6)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/527
+authors:
+  - @xezon
