@@ -1,0 +1,26 @@
+date: 2025-03-28
+labels:
+  - Build
+  - Major
+  - Tools
+  - ZeroHour
+affects:
+  - ZH
+changes:
+  - [ZH] Fix constness errors for Zero Hour Tools build (bec257a634b0ed25245d47e808df4b8dfd0402ba)
+  - [ZH] Fix dependent name errors for Zero Hour Tools (94d191f22da2627e3ed8a579e026c17913c51f37)
+  - [ZH] Prevent including d3d9types.h via afxwin.h for Zero Hour Tools build (b100eb088e0bf73b7782146bd9aff0614ee2b630)
+  - [ZH] Fix type declaration scope issues for Zero Hour Tools build (94b763b6b63c8546693037794d43165f7aead369)
+  - [GEN][ZH] Disable maxsdk and max2w3d tool in non-vs6 build (d5d2095375980beca8159d94966a5cc3526004bf)
+  - [ZH] Fix type mismatch errors for Zero Hour Tools build (606be3511193a9abeed23188d3cad2c5e7e8d57d)
+  - [ZH] Fix incompatible function calls of std::vector, std::string, CString for Zero Hour Tools build (cff3418c730ef1cff98359dafd683fff952c7451)
+  - [ZH] Fix c++20 keyword conflicts for Zero Hour Tools build (0d269b386876eef687bcb4312af66e9ff39d270e)
+  - [ZH] Fix hash_map errors for Zero Hour Tools build (3733c750850b81b3c6d35ad30c56eefb6c3b65f9)
+  - [ZH] Fix iostream errors for Zero Hour Tools build (24272c7a1441b251943b499bab6ba63a6ead6b95)
+  - [ZH] Fix fstream include errors for Zero Hour Tools build (507621d5ae61d228a676f3c10db2b93f902d5afc)
+  - [ZH] Fix misc and header include errors for Zero Hour Tools build (ff8819be984457fae1e025ca54167a9544fc5f10)
+  - [ZH] Upgrade Zero Hour Tools to c++20 (175120232f817f42329ef68564415725afdd7c8b)
+links:
+  - https://github.com/TheSuperHackers/GeneralsGameCode/pull/509
+authors:
+  - @xezon
