@@ -1,0 +1,11 @@
+{
+  "repository": "TheSuperHackers/GeneralsGameCode",
+  "token": "",
+  "output_dir": "changelog/unreleased",
+  "from_date": "2025-01-01",
+  "to_date": "2025-06-30",
+  "fields": ["number", "title", "user", "merged_at", "labels", "body"],
+  "label_filters": [],
+  "state": "closed",
+  "per_page": 100
+}
