@@ -18,6 +18,7 @@ def parse_args(argv: List[str] | None = None) -> argparse.Namespace:  # noqa: D4
     """Return CLI arguments."""
     ap = argparse.ArgumentParser(description="Generate YAML of merged GitHub PRs")
     ap.add_argument("--config", required=True, help="Path to JSON config file")
+    ap.add_argument("--pr-number", type=int, help="Filter PRs by number")
     return ap.parse_args(argv)
 
 
@@ -28,10 +29,10 @@ def main(argv: List[str] | None = None) -> None:  # noqa: D401
     log.info("Loaded config for repo %s", cfg.repository)
 
     client = GitHubClient(token=cfg.token)
-    prs = fetch_prs(cfg, client)
+    prs = fetch_prs(cfg, client, specificPr=args.pr_number)
     log.info("Fetched %d PRs", len(prs))
 
-    paths = write_pr_yamls(prs, cfg.output_dir)
+    paths = write_pr_yamls(prs, cfg)
     log.info("Wrote %d YAML files to %s", len(paths), cfg.output_dir)
 
 

@@ -29,6 +29,7 @@ class AppConfig(BaseModel):
     label_filters: Optional[List[str]] = None
     state: str = "closed"
     per_page: int = Field(100, ge=1, le=100)
+    max_title_length: int = Field(20, ge=1, le=200)
     
     @field_validator("repository")
     def _repo_must_have_slash(cls, v: str) -> str:

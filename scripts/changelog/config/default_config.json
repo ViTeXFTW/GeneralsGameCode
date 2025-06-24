@@ -4,8 +4,9 @@
   "output_dir": "changelog/unreleased",
   "from_date": "2025-01-01",
   "to_date": "2025-06-30",
-  "fields": ["number", "title", "user", "merged_at", "labels", "body"],
+  "fields": ["number", "title", "user", "merged_at", "labels", "body", "milestone"],
   "label_filters": [],
   "state": "closed",
-  "per_page": 100
+  "per_page": 100,
+  "max_title_length": 40
 }
