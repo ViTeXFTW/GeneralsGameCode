@@ -1,0 +1,11 @@
+PR Number: 632
+Title: '[GEN][ZH] Fix uninitialized variables in AiPathFind::findGroundPath, AiPathFind::classifyFence'
+Merged At: '2025-04-28T07:30:18Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/632
+Labels:
+- Bug
+- Major
+- Gen
+- ZH
+- Stability

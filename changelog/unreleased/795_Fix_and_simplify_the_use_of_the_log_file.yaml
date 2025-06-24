@@ -1,0 +1,12 @@
+PR Number: 795
+Title: '[GEN][ZH] Fix and simplify the use of the log file in RecorderClass'
+Merged At: '2025-05-02T14:19:12Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/795
+Labels:
+- Minor
+- Gen
+- ZH
+- Refactor
+- Debug
+- Fix

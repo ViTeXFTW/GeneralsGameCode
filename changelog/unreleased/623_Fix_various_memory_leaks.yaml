@@ -1,0 +1,11 @@
+PR Number: 623
+Title: '[GEN][ZH] Fix various memory leaks'
+Merged At: '2025-05-09T14:45:57Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/623
+Labels:
+- Major
+- Gen
+- ZH
+- Memory
+- Stability

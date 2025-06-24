@@ -1,0 +1,13 @@
+PR Number: 794
+Title: '[GEN][ZH] Implement multi instance support for the game client'
+Merged At: '2025-05-02T19:26:07Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/794
+Labels:
+- Enhancement
+- Major
+- Gen
+- ZH
+- Debug
+Related Pull Requests:
+- 'Relates To #407'

@@ -1,0 +1,11 @@
+PR Number: 657
+Title: '[GEN][ZH] Reset DrawableID on map load to avoid massive id growth over the
+  lifetime of the game'
+Merged At: '2025-04-26T10:05:06Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/657
+Labels:
+- Bug
+- Minor
+- Gen
+- ZH

@@ -1,0 +1,9 @@
+PR Number: 653
+Title: '[GEN][ZH] Fix uninitialized supplyTruck variable in AiPlayer::onUnitProduced()'
+Merged At: '2025-04-27T16:09:56Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/653
+Labels:
+- Bug
+- Major
+- Stability

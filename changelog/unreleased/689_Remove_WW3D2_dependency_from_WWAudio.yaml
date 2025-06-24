@@ -1,0 +1,10 @@
+PR Number: 689
+Title: '[ZH] Remove WW3D2 dependency from WWAudio'
+Merged At: '2025-04-16T07:38:26Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/689
+Labels:
+- ZH
+- Refactor
+Related Issues:
+- 'Closes: #685'

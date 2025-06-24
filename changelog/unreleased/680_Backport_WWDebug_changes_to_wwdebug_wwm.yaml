@@ -1,0 +1,9 @@
+PR Number: 680
+Title: '[GEN] Backport WWDebug changes to wwdebug, wwmemlog, wwprofile from Zero Hour'
+Merged At: '2025-04-14T17:35:35Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/680
+Labels:
+- Minor
+- Gen
+- Unify

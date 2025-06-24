@@ -1,0 +1,8 @@
+PR Number: 1062
+Title: '[GEN][ZH] Refactor non-trivial string objects as variadic function parameter'
+Merged At: '2025-06-15T08:00:45Z'
+Author: Caball009
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1062
+Labels:
+- Minor
+- Refactor

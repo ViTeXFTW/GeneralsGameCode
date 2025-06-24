@@ -1,0 +1,12 @@
+PR Number: 640
+Title: '[GEN][ZH] Fix compiler warnings for uninitialized variables in copy constructors'
+Merged At: '2025-04-09T19:12:45Z'
+Author: roossienb
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/640
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix
+Related Issues:
+- 'Resolves: #499'

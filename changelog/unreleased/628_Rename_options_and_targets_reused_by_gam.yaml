@@ -1,0 +1,9 @@
+PR Number: 628
+Title: '[CMAKE] Rename options and targets reused by games'
+Merged At: '2025-04-08T15:19:30Z'
+Author: feliwir
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/628
+Labels:
+- Minor
+- Build
+- Refactor

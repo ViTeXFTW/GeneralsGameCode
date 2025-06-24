@@ -1,0 +1,11 @@
+PR Number: 1128
+Title: '[GEN][ZH] Downgrade debug assertion to log for isPathInDirectory'
+Merged At: '2025-06-21T08:59:25Z'
+Author: slurmlord
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1128
+Labels:
+- Minor
+- Refactor
+- Debug
+Related Pull Requests:
+- 'Follow Up on: #1058'

@@ -1,0 +1,9 @@
+PR Number: 475
+Title: '[GEN][ZH] Fix character encoding issues in comments and key mappings'
+Merged At: '2025-03-23T20:10:50Z'
+Author: DevGeniusCode
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/475
+Labels:
+- Minor
+- Build
+- Refactor

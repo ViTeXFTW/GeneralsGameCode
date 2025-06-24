@@ -1,0 +1,11 @@
+PR Number: 772
+Title: '[GEN] Backport collision test related changes and fixes in WWMath from Zero
+  Hour'
+Merged At: '2025-04-28T17:10:51Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/772
+Labels:
+- Gen
+- Unify
+Related Pull Requests:
+- 'Follow Up on: #694'

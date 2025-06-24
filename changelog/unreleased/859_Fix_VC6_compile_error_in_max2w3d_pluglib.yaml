@@ -1,0 +1,11 @@
+PR Number: 859
+Title: '[CORE] Fix VC6 compile error in max2w3d pluglib'
+Merged At: '2025-05-16T17:33:49Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/859
+Labels:
+- Minor
+- CompileBug
+- Tools
+Related Pull Requests:
+- 'Follow Up on: #712'

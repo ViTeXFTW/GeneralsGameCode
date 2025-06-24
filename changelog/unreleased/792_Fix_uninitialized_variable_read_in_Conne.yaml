@@ -1,0 +1,10 @@
+PR Number: 792
+Title: '[GEN][ZH] Fix uninitialized variable read in ConnectionManager::allCommandsReady()'
+Merged At: '2025-05-01T16:49:12Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/792
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix

@@ -1,0 +1,8 @@
+PR Number: 1120
+Title: '[GEN][ZH] Remove unnecessary NULL pointer tests in UpdateSlotList()'
+Merged At: '2025-06-21T09:18:19Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1120
+Labels:
+- Minor
+- Refactor

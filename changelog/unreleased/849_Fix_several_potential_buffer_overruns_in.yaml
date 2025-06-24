@@ -1,0 +1,11 @@
+PR Number: 849
+Title: '[GEN][ZH] Fix several potential buffer overruns in game code'
+Merged At: '2025-05-15T14:14:18Z'
+Author: slurmlord
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/849
+Labels:
+- Major
+- Gen
+- ZH
+- Fix
+- Stability

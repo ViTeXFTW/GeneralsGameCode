@@ -1,0 +1,15 @@
+PR Number: 630
+Title: '[GEN][ZH] Fix stlport iterator use to conform with STL'
+Merged At: '2025-04-08T20:35:44Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/630
+Labels:
+- Major
+- Gen
+- ZH
+- Fix
+- Stability
+Related Issues:
+- 'Closes: #302'
+Related Pull Requests:
+- 'Relates To #563'

@@ -1,0 +1,8 @@
+PR Number: 1093
+Title: '[GEN][ZH] Fix dereferencing NULL pointer ''victimObj'' in WeaponTemplate::estimateWeaponTemplateDamage()'
+Merged At: '2025-06-21T21:13:22Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1093
+Labels:
+- Minor
+- Refactor

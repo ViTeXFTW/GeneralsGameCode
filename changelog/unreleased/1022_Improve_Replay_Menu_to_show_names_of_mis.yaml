@@ -1,0 +1,14 @@
+PR Number: 1022
+Title: '[GEN][ZH] Improve Replay Menu to show names of missing maps in red color'
+Merged At: '2025-06-09T20:20:53Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1022
+Labels:
+- GUI
+- Minor
+- Gen
+- ZH
+Related Issues:
+- 'Closes: #398'
+Related Pull Requests:
+- 'Split Off from: #398'

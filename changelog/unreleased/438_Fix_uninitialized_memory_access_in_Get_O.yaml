@@ -1,0 +1,13 @@
+PR Number: 438
+Title: '[GEN][ZH] Fix uninitialized memory access in Get_OS_Info'
+Merged At: '2025-03-29T14:01:44Z'
+Author: JAJames
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/438
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH
+- Stability
+Related Issues:
+- 'Fixes: #437'

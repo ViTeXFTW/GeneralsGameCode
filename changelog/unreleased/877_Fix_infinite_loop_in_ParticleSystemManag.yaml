@@ -1,0 +1,13 @@
+PR Number: 877
+Title: '[GEN][ZH] Fix infinite loop in ParticleSystemManager::update'
+Merged At: '2025-05-18T17:36:21Z'
+Author: Caball009
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/877
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix
+- Stability
+Related Issues:
+- 'Fixes: #841'

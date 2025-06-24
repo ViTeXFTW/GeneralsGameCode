@@ -1,0 +1,9 @@
+PR Number: 508
+Title: '[GEN] Replace inline assembler for non VS6 builds'
+Merged At: '2025-04-01T18:33:18Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/508
+Labels:
+- Critical
+- Build
+- Gen

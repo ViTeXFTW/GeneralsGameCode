@@ -1,0 +1,13 @@
+PR Number: 824
+Title: '[GEN][ZH] Fix crash when DEBUG_CRASHING is enabled and loading a replay with
+  unicode characters'
+Merged At: '2025-05-09T21:26:37Z'
+Author: helmutbuhler
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/824
+Labels:
+- Minor
+- Gen
+- ZH
+- Debug
+- Fix
+- Stability

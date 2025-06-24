@@ -1,0 +1,9 @@
+PR Number: 1139
+Title: '[GEN][ZH] Suppress compile warning about buffer overrun while writing to ''m_structuresToRepair''
+  in AIPlayer::repairStructure()'
+Merged At: '2025-06-22T06:50:48Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1139
+Labels:
+- Minor
+- Refactor

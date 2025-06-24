@@ -1,0 +1,9 @@
+PR Number: 1149
+Title: '[GEN][ZH] Prevent dereferencing NULL pointer ''TheWritableGlobalData'' in
+  GameLODManager::applyStaticLODLevel()'
+Merged At: '2025-06-22T06:57:49Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1149
+Labels:
+- Minor
+- Refactor

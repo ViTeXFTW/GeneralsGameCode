@@ -1,0 +1,11 @@
+PR Number: 827
+Title: '[GEN] Backport fast forward feature for replay playback'
+Merged At: '2025-05-08T20:35:17Z'
+Author: roossienb
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/827
+Labels:
+- Enhancement
+- Gen
+- Unify
+Related Pull Requests:
+- 'Relates To #555'

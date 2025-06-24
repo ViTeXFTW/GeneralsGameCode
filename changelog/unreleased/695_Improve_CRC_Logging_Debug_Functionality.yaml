@@ -1,0 +1,13 @@
+PR Number: 695
+Title: '[GEN] Improve CRC Logging Debug Functionality'
+Merged At: '2025-04-17T12:44:14Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/695
+Labels:
+- Major
+- Gen
+- Debug
+Related Issues:
+- 'Resolves: #690'
+Related Pull Requests:
+- 'Follow Up on: #544'

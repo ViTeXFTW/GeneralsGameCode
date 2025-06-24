@@ -1,0 +1,10 @@
+PR Number: 1077
+Title: '[GEN][ZH] Fix erroneous fflush(NULL) in RecorderClass::updateRecord()'
+Merged At: '2025-06-19T06:39:29Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1077
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix

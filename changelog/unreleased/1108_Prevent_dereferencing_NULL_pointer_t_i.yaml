@@ -1,0 +1,9 @@
+PR Number: 1108
+Title: '[CORE] Prevent dereferencing NULL pointer ''t'' in Record_Texture_End()'
+Merged At: '2025-06-20T10:24:48Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1108
+Labels:
+- Minor
+- Debug
+- Fix

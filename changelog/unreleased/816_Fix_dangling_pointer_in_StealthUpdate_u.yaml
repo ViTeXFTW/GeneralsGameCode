@@ -1,0 +1,15 @@
+PR Number: 816
+Title: '[GEN][ZH] Fix dangling pointer in StealthUpdate::update() when GLA Bomb Truck
+  changes disguise'
+Merged At: '2025-05-06T20:39:41Z'
+Author: roossienb
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/816
+Labels:
+- Minor
+- Gen
+- ZH
+- Memory
+- Fix
+- Stability
+Related Issues:
+- 'Resolves: #781'

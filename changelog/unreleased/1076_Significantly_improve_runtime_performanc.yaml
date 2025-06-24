@@ -1,0 +1,12 @@
+PR Number: 1076
+Title: '[GEN][ZH] Significantly improve runtime performance by removing extraneous
+  call to fflush in RecorderClass::writeToFile()'
+Merged At: '2025-06-19T06:38:18Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1076
+Labels:
+- Critical
+- Performance
+- Gen
+- ZH
+- Fix

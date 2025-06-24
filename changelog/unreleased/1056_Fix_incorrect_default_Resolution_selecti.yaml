@@ -1,0 +1,14 @@
+PR Number: 1056
+Title: '[GEN][ZH] Fix incorrect default Resolution selection in the Options Menu when
+  the loaded Resolution does not match the active Display Resolution'
+Merged At: '2025-06-21T10:57:21Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1056
+Labels:
+- Bug
+- GUI
+- Minor
+- Gen
+- ZH
+Related Pull Requests:
+- 'Follow Up on: #1055'

@@ -1,0 +1,9 @@
+PR Number: 1126
+Title: '[GEN][ZH] Fix dereferencing NULL pointer ''CBScheme->m_buttonQueueImage''
+  in ControlBarSchemeManager::preloadAssets()'
+Merged At: '2025-06-21T09:19:39Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1126
+Labels:
+- Minor
+- Fix

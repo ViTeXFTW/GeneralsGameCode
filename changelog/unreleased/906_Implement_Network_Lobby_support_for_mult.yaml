@@ -1,0 +1,15 @@
+PR Number: 906
+Title: '[GEN][ZH] Implement Network Lobby support for multi instance clients'
+Merged At: '2025-05-30T19:36:27Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/906
+Labels:
+- Enhancement
+- Major
+- Gen
+- ZH
+- Debug
+Related Issues:
+- 'Closes: #407'
+Related Pull Requests:
+- 'Merge After #905'

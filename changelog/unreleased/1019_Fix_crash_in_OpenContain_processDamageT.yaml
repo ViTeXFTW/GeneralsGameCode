@@ -1,0 +1,13 @@
+PR Number: 1019
+Title: '[GEN][ZH] Fix crash in OpenContain::processDamageToContained() when killed
+  occupants kill the host container'
+Merged At: '2025-06-12T21:00:57Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1019
+Labels:
+- Bug
+- Critical
+- ZH
+- Crash
+Related Pull Requests:
+- 'Relates To #921'

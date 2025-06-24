@@ -1,0 +1,11 @@
+PR Number: 1104
+Title: '[CORE] Fix compile error "friend cannot be used with static" in mangler''s
+  and matchbot''s threadfac.h'
+Merged At: '2025-06-19T21:05:40Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1104
+Labels:
+- Major
+- CompileBug
+- Build
+- Tools

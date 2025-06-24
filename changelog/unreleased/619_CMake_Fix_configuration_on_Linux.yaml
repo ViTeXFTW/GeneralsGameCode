@@ -1,0 +1,10 @@
+PR Number: 619
+Title: '[CMake] Fix configuration on Linux'
+Merged At: '2025-04-07T08:00:26Z'
+Author: feliwir
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/619
+Labels:
+- Minor
+- Build
+Related Issues:
+- 'Fixes: #614'

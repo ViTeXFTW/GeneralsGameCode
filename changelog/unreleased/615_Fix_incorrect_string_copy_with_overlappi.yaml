@@ -1,0 +1,12 @@
+PR Number: 615
+Title: '[GEN][ZH] Fix incorrect string copy with overlapping memory regions in AsciiString,
+  UnicodeString, strtrim'
+Merged At: '2025-04-11T21:26:13Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/615
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix
+- Stability

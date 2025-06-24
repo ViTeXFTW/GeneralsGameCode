@@ -1,0 +1,13 @@
+PR Number: 845
+Title: '[GEN][ZH] Fix memory leak in SpecialAbilityUpdate::isWithinStartAbilityRange()'
+Merged At: '2025-05-11T15:43:29Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/845
+Labels:
+- Bug
+- Minor
+- Gen
+- ZH
+- Memory
+Related Pull Requests:
+- 'Relates To #181'

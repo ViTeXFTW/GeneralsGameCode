@@ -1,0 +1,9 @@
+PR Number: 604
+Title: '[CMake] Add cmake option for enabling address sanitizer'
+Merged At: '2025-04-07T20:30:10Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/604
+Labels:
+- Minor
+- Build
+- Test

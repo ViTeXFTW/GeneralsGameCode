@@ -1,0 +1,11 @@
+PR Number: 707
+Title: '[CORE] Move buildversionUpdate, textureCompress, timingTest, versionUpdate
+  tools to Core'
+Merged At: '2025-04-20T08:55:11Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/707
+Labels:
+- Tools
+- Unify
+Related Pull Requests:
+- 'Relates To #555'

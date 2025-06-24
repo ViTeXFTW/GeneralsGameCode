@@ -1,0 +1,12 @@
+PR Number: 964
+Title: '[GEN][ZH] Fix crash in AIUpdateInterface::privateMoveAwayFromUnit() when a
+  delayed AICommandParms relates to a then deleted object'
+Merged At: '2025-05-29T20:16:08Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/964
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH
+- Crash

@@ -1,0 +1,9 @@
+PR Number: 481
+Title: Added script to fix file name case in includes
+Merged At: '2025-03-23T20:21:03Z'
+Author: zzambers
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/481
+Labels:
+- Executable
+- Build
+- Tools

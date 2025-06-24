@@ -1,0 +1,9 @@
+PR Number: 1080
+Title: '[CORE] Fix wrong loop increment in GeneralsMatcher::checkMatchesInUserMap()'
+Merged At: '2025-06-18T19:51:47Z'
+Author: Caball009
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1080
+Labels:
+- Minor
+- Tools
+- Fix

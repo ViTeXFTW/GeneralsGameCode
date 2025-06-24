@@ -1,0 +1,14 @@
+PR Number: 860
+Title: '[GEN][ZH] Demote throw to assert in InGameUI::message, InGameUI::messageColor'
+Merged At: '2025-05-16T17:37:55Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/860
+Labels:
+- Minor
+- Gen
+- ZH
+- Refactor
+- Stability
+Related Pull Requests:
+- 'Relates To #857'
+- 'Follow Up on: #835'

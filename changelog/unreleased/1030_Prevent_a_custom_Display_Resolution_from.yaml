@@ -1,0 +1,16 @@
+PR Number: 1030
+Title: '[GEN][ZH] Prevent a custom Display Resolution from changing when making other
+  changes in the Options Menu'
+Merged At: '2025-06-12T16:45:19Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1030
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH
+- Crash
+Related Issues:
+- 'Fixes: #453'
+Related Pull Requests:
+- 'Relates To #1028'

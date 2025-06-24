@@ -1,0 +1,10 @@
+PR Number: 883
+Title: '[GEN][ZH] Add additional logging for calls to DX8Wrapper::Reset_Device'
+Merged At: '2025-05-19T21:07:06Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/883
+Labels:
+- Minor
+- Debug
+Related Pull Requests:
+- 'Split Off from: #846'

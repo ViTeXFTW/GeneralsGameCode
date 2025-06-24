@@ -1,0 +1,14 @@
+PR Number: 846
+Title: '[GEN][ZH] Fix Alt-tabbing crash'
+Merged At: '2025-05-19T20:45:44Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/846
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH
+- Crash
+Related Issues:
+- 'Fixes: #28'
+- 'Closes: #801'

@@ -1,0 +1,13 @@
+PR Number: 879
+Title: '[GEN][ZH] Fix crash in W3DBufferManager when a shadow buffer limit is exceeded'
+Merged At: '2025-05-19T20:16:16Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/879
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH
+- Crash
+Related Issues:
+- 'Fixes: #22'

@@ -1,0 +1,9 @@
+PR Number: 678
+Title: '[CMAKE] Add missing source files to WWVegas CMakeLists, remove duplicate pot
+  source files'
+Merged At: '2025-04-14T13:54:48Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/678
+Labels:
+- Minor
+- Refactor

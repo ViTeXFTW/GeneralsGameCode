@@ -1,0 +1,12 @@
+PR Number: 730
+Title: '[GEN][ZH] Fix drawable assignment in StealthUpdate::changeVisualDisguise()'
+Merged At: '2025-04-27T15:37:49Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/730
+Labels:
+- Minor
+- Gen
+- ZH
+- Memory
+- Fix
+- Stability

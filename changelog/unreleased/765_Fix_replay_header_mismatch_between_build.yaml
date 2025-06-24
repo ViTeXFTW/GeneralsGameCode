@@ -1,0 +1,12 @@
+PR Number: 765
+Title: '[GEN][ZH] Fix replay header mismatch between builds using 32 bit or 64 bit
+  wide time_t'
+Merged At: '2025-04-28T22:37:10Z'
+Author: helmutbuhler
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/765
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix
+- Stability

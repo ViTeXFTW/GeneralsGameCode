@@ -1,0 +1,11 @@
+PR Number: 1075
+Title: '[ZH] Revert fix for uninitialized cellBounds in Pathfinder::classifyFence()
+  for VC6 builds to avoid mismatching with Retail'
+Merged At: '2025-06-16T20:38:22Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1075
+Labels:
+- Major
+- ZH
+- Fix
+- Stability

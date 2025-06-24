@@ -1,0 +1,10 @@
+PR Number: 889
+Title: '[GEN][ZH] Rename MemoryPoolObject::deleteInstance to MemoryPoolObject::deleteInstanceInternal'
+Merged At: '2025-05-21T14:22:35Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/889
+Labels:
+- Minor
+- Refactor
+Related Pull Requests:
+- 'Follow Up on: #870'

@@ -1,0 +1,11 @@
+PR Number: 629
+Title: '[GEN][ZH] Fix invalidated iterator access in ScriptEngine::evaluateAndProgressAllSequentialScripts'
+Merged At: '2025-04-09T17:07:51Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/629
+Labels:
+- Major
+- Gen
+- ZH
+- Fix
+- Stability

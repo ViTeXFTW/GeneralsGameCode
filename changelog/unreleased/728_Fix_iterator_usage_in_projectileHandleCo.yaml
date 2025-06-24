@@ -1,0 +1,13 @@
+PR Number: 728
+Title: '[GEN][ZH] Fix iterator usage in projectileHandleCollision functions'
+Merged At: '2025-04-27T15:39:43Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/728
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix
+- Stability
+Related Issues:
+- 'Closes: #716'

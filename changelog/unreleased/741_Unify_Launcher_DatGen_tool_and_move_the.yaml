@@ -1,0 +1,10 @@
+PR Number: 741
+Title: Unify Launcher, DatGen tool and move their files to Core
+Merged At: '2025-04-24T16:57:48Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/741
+Labels:
+- Tools
+- Unify
+Related Pull Requests:
+- 'Relates To #555'

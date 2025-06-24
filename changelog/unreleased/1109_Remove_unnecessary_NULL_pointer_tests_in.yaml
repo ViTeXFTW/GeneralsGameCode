@@ -1,0 +1,8 @@
+PR Number: 1109
+Title: '[ZH] Remove unnecessary NULL pointer tests in ..CrateCollide::executeCrateBehavior()'
+Merged At: '2025-06-20T10:25:10Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1109
+Labels:
+- Minor
+- Refactor

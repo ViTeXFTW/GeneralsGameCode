@@ -1,0 +1,14 @@
+PR Number: 527
+Title: '[GEN] Make Generals Tools compile with VS2022 c++20'
+Merged At: '2025-03-28T21:15:19Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/527
+Labels:
+- Major
+- Build
+- Gen
+- Tools
+Related Issues:
+- 'Resolves: #471'
+Related Pull Requests:
+- 'Follow Up on: #484'

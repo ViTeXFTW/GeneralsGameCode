@@ -1,0 +1,10 @@
+PR Number: 1069
+Title: '[GEN][ZH] Remove unnecessary 3 seconds delay from game startup'
+Merged At: '2025-06-16T21:48:54Z'
+Author: helmutbuhler
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1069
+Labels:
+- Minor
+- Performance
+- Gen
+- ZH

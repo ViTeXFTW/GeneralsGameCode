@@ -1,0 +1,9 @@
+PR Number: 893
+Title: '[ZH] Add missing call to IDirect3DSurface8::UnlockRect in W3DSmudge''s copyRect'
+Merged At: '2025-05-23T20:03:21Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/893
+Labels:
+- Minor
+- ZH
+- Fix

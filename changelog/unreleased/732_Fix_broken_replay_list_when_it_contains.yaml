@@ -1,0 +1,14 @@
+PR Number: 732
+Title: '[GEN][ZH] Fix broken replay list when it contains a replay with an unknown
+  map'
+Merged At: '2025-04-21T18:07:11Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/732
+Labels:
+- Design
+- GUI
+- Minor
+- Gen
+- ZH
+Related Pull Requests:
+- 'Split Off from: #398'

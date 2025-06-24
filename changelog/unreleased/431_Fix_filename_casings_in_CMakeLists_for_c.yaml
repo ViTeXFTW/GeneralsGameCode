@@ -1,0 +1,7 @@
+PR Number: 431
+Title: Fix filename casings in CMakeLists for case-sensitive systems.
+Merged At: '2025-03-16T15:04:39Z'
+Author: slurmlord
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/431
+Labels:
+- Build

@@ -1,0 +1,8 @@
+PR Number: 952
+Title: '[GEN][ZH] Set correct size for array parameter in BezierSegment function declaration'
+Merged At: '2025-05-26T16:40:51Z'
+Author: Caball009
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/952
+Labels:
+- Minor
+- Refactor

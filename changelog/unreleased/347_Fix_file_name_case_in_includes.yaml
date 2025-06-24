@@ -1,0 +1,11 @@
+PR Number: 347
+Title: '[GEN][ZH] Fix file name case in includes'
+Merged At: '2025-03-25T19:31:40Z'
+Author: zzambers
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/347
+Labels:
+- Minor
+- CompileBug
+- Build
+- Gen
+- ZH

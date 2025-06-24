@@ -1,0 +1,14 @@
+PR Number: 676
+Title: '[ZH] Use hash maps for Object and Drawable lookups in GameClient, GameLogic
+  like Generals does'
+Merged At: '2025-04-14T16:37:03Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/676
+Labels:
+- Major
+- Reverted
+- ZH
+- Refactor
+- Memory
+- Fix
+- Unify

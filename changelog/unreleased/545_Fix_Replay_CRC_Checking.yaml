@@ -1,0 +1,12 @@
+PR Number: 545
+Title: '[ZH] Fix Replay CRC Checking'
+Merged At: '2025-04-03T20:43:05Z'
+Author: helmutbuhler
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/545
+Labels:
+- Bug
+- Major
+- ZH
+- Debug
+Related Pull Requests:
+- 'Relates To #566'

@@ -1,0 +1,10 @@
+PR Number: 809
+Title: '[GEN][ZH] Fix dangling pointer at Player::m_defaultTeam when Team is destroyed'
+Merged At: '2025-05-04T14:51:34Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/809
+Labels:
+- Major
+- Gen
+- ZH
+- Fix

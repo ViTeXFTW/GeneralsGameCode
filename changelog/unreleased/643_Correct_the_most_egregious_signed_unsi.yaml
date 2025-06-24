@@ -1,0 +1,10 @@
+PR Number: 643
+Title: '[GEN][ZH] Correct the most egregious signed / unsigned mismatch warnings'
+Merged At: '2025-04-10T20:58:00Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/643
+Labels:
+- Performance
+- Build
+- Gen
+- ZH

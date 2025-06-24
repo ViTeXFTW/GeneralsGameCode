@@ -1,0 +1,13 @@
+PR Number: 848
+Title: '[GEN][ZH] Fix heap-use-after-free in ScoreScaleUpTransition::draw and dangling
+  pointers to GameWindow in WindowTransitions'
+Merged At: '2025-05-19T19:44:54Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/848
+Labels:
+- Minor
+- Gen
+- ZH
+- Memory
+- Fix
+- Stability

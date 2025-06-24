@@ -1,0 +1,12 @@
+PR Number: 892
+Title: '[GEN][ZH] Fix crash when taking a screenshot while the Game Window clips over
+  the screen edge'
+Merged At: '2025-05-24T18:53:30Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/892
+Labels:
+- Bug
+- Major
+- Gen
+- ZH
+- Crash

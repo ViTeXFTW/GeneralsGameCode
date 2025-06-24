@@ -1,0 +1,11 @@
+PR Number: 813
+Title: '[GEN] Add FXShader, BINORMAL, TANGENT chunks from BFME'
+Merged At: '2025-05-04T18:28:30Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/813
+Labels:
+- Gen
+- Unify
+Related Pull Requests:
+- 'Follow Up on: #599'
+- 'Follow Up on: #736'

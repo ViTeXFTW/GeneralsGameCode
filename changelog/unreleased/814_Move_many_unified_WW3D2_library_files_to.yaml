@@ -1,0 +1,11 @@
+PR Number: 814
+Title: '[CORE] Move many unified WW3D2 library files to Core'
+Merged At: '2025-05-05T16:39:42Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/814
+Labels:
+- Refactor
+- Unify
+Related Pull Requests:
+- 'Relates To #555'
+- 'Merge After #811'

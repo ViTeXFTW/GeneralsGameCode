@@ -1,0 +1,11 @@
+PR Number: 921
+Title: '[ZH] Fix crash in OpenContain::killAllContained() when killed occupants kill
+  the host container'
+Merged At: '2025-05-31T07:54:03Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/921
+Labels:
+- Bug
+- Critical
+- ZH
+- Crash

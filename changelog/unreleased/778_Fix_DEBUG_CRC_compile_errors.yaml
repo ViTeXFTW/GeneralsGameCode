@@ -1,0 +1,13 @@
+PR Number: 778
+Title: '[GEN][ZH] Fix DEBUG_CRC compile errors'
+Merged At: '2025-04-29T17:59:45Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/778
+Labels:
+- Minor
+- Build
+- Gen
+- ZH
+- Debug
+Related Pull Requests:
+- 'Split Off from: #771'

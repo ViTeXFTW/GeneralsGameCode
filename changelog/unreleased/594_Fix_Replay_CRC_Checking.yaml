@@ -1,0 +1,13 @@
+PR Number: 594
+Title: '[GEN] Fix Replay CRC Checking'
+Merged At: '2025-04-05T16:58:24Z'
+Author: roossienb
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/594
+Labels:
+- Bug
+- Major
+- Gen
+- Debug
+Related Pull Requests:
+- 'Relates To #566'
+- 'Follow Up on: #545'

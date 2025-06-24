@@ -1,0 +1,11 @@
+PR Number: 780
+Title: '[GEN][ZH] Rename _DEBUG, _INTERNAL, _PROFILE, _RELEASE with RTS prefix'
+Merged At: '2025-04-30T10:59:33Z'
+Author: OmniBlade
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/780
+Labels:
+- Minor
+- Build
+- Refactor
+Related Issues:
+- 'Fixes: #539'

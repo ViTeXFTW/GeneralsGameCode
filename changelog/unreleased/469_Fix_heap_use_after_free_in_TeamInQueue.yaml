@@ -1,0 +1,11 @@
+PR Number: 469
+Title: '[GEN][ZH] Fix heap-use-after-free in TeamInQueue::~TeamInQueue'
+Merged At: '2025-04-02T13:00:13Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/469
+Labels:
+- Bug
+- Major
+- Gen
+- ZH
+- Stability

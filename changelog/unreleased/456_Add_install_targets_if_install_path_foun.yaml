@@ -1,0 +1,9 @@
+PR Number: 456
+Title: Add install targets if install path found.
+Merged At: '2025-03-22T21:41:59Z'
+Author: OmniBlade
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/456
+Labels:
+- Build
+Related Issues:
+- 'Fixes: #454'

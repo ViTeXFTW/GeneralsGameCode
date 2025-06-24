@@ -1,0 +1,9 @@
+PR Number: 1086
+Title: '[GEN][ZH] Prevent using uninitialized memory ''offset_u'' in W3DTankDraw,
+  W3DTankTruckDraw'
+Merged At: '2025-06-21T09:08:07Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1086
+Labels:
+- Minor
+- Fix

@@ -1,0 +1,10 @@
+PR Number: 1052
+Title: '[GEN][ZH] Add message with additional information on CRC mismatch in Replay
+  playback'
+Merged At: '2025-06-11T19:59:44Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1052
+Labels:
+- Minor
+- Text
+- Debug

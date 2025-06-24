@@ -1,0 +1,16 @@
+PR Number: 890
+Title: '[GEN][ZH] Fix crash in StateMachine when a chained StateMachine update deletes
+  the executor StateMachine'
+Merged At: '2025-05-28T18:21:47Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/890
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH
+- Crash
+Related Issues:
+- 'Fixes: #212'
+Related Pull Requests:
+- 'Merge After #889'

@@ -1,0 +1,18 @@
+PR Number: 631
+Title: '[GEN][ZH] Fix list element erasure with iterator on unrelated container in
+  ResourceGatheringManager::findBestSupplyCenter, MilesAudioManager::killLowestPrioritySoundImmediately'
+Merged At: '2025-04-09T17:24:13Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/631
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix
+- Stability
+Related Issues:
+- 'Closes: #349'
+- 'Resolves: #342'
+- 'Resolves: #537'
+Related Pull Requests:
+- 'Relates To #563'

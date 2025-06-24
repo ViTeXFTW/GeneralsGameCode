@@ -1,0 +1,10 @@
+PR Number: 658
+Title: '[GEN][ZH] Decouple Compress from CRCDiff'
+Merged At: '2025-04-12T10:49:03Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/658
+Labels:
+- Minor
+- Gen
+- ZH
+- Refactor

@@ -1,0 +1,10 @@
+PR Number: 365
+Title: Initial CMake build system targetting VC6
+Merged At: '2025-03-14T23:20:02Z'
+Author: OmniBlade
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/365
+Labels:
+- Build
+- ZH
+Related Issues:
+- 'Closes: #283'

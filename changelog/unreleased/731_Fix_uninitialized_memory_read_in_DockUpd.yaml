@@ -1,0 +1,12 @@
+PR Number: 731
+Title: '[GEN][ZH] Fix uninitialized memory read in DockUpdate::loadDockPositions'
+Merged At: '2025-04-27T15:38:32Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/731
+Labels:
+- Bug
+- Minor
+- Gen
+- ZH
+- Memory
+- Stability

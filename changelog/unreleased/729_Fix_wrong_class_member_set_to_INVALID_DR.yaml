@@ -1,0 +1,10 @@
+PR Number: 729
+Title: '[GEN][ZH] Fix wrong class member set to INVALID_DRAWABLE_ID in ParticleUplinkCannonUpdate::createGroundToOrbitLaser()'
+Merged At: '2025-04-28T19:45:28Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/729
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix

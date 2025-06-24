@@ -1,0 +1,10 @@
+PR Number: 749
+Title: '[CORE] Move MapCacheBuilder tool files to Core'
+Merged At: '2025-04-23T06:20:37Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/749
+Labels:
+- Tools
+- Unify
+Related Pull Requests:
+- 'Relates To #555'

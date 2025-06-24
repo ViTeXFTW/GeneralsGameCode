@@ -1,0 +1,8 @@
+PR Number: 1143
+Title: '[GEN][ZH] Prevent dereferencing NULL pointer ''font'' in W3DFontLibrary::releaseFontData()'
+Merged At: '2025-06-22T06:55:38Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1143
+Labels:
+- Minor
+- Refactor

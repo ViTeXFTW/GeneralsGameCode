@@ -1,0 +1,11 @@
+PR Number: 655
+Title: '[GEN][ZH] Remove duplicate strtrim implementations'
+Merged At: '2025-04-11T22:29:51Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/655
+Labels:
+- Minor
+- Gen
+- ZH
+- Tools
+- Refactor

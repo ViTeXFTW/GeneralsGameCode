@@ -1,0 +1,10 @@
+PR Number: 694
+Title: '[CMAKE][CORE] Move WWSaveLoad and most of WWMath to Core'
+Merged At: '2025-04-16T19:38:03Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/694
+Labels:
+- Build
+- Unify
+Related Issues:
+- 'Closes: #681'

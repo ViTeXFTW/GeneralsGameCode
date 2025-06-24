@@ -1,0 +1,10 @@
+PR Number: 1124
+Title: '[GEN][ZH] Prevent dereferencing NULL pointer ''pbmi'' and memory leaks in
+  CreateBMPFile()'
+Merged At: '2025-06-22T06:42:11Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1124
+Labels:
+- Minor
+- Memory
+- Fix

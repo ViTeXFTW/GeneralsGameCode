@@ -1,0 +1,15 @@
+PR Number: 984
+Title: '[GEN][ZH] Fix missing OLDER REPLAY VERSION dialog when double clicking a replay
+  to load'
+Merged At: '2025-05-31T18:34:56Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/984
+Labels:
+- Bug
+- GUI
+- Minor
+- Gen
+- ZH
+- Refactor
+Related Pull Requests:
+- 'Split Off from: #398'

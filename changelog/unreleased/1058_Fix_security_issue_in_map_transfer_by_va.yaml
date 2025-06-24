@@ -1,0 +1,14 @@
+PR Number: 1058
+Title: '[GEN][ZH] Fix security issue in map transfer by validating file paths when
+  creating real paths from portable paths'
+Merged At: '2025-06-19T06:46:44Z'
+Author: slurmlord
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1058
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH
+- Security
+Related Pull Requests:
+- 'Relates To #272'

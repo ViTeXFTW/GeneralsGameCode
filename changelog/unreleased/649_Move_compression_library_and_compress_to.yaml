@@ -1,0 +1,13 @@
+PR Number: 649
+Title: '[CMAKE][CORE] Move compression library and compress tool to Core'
+Merged At: '2025-04-12T13:51:42Z'
+Author: feliwir
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/649
+Labels:
+- Minor
+- Gen
+- ZH
+- Tools
+- Unify
+Related Pull Requests:
+- 'Relates To #555'

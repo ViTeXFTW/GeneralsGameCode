@@ -1,0 +1,12 @@
+PR Number: 922
+Title: '[GEN][ZH] Fix global-buffer-overflow at GUI_COMMAND_EXIT_CONTAINER in ControlBar::processCommandUI()'
+Merged At: '2025-05-25T11:24:11Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/922
+Labels:
+- Minor
+- Gen
+- ZH
+- Memory
+- Fix
+- Stability

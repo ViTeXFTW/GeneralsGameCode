@@ -1,0 +1,11 @@
+PR Number: 764
+Title: '[GEN][ZH] Revert #645 and add out of range check on object and drawable vector
+  based lookup tables'
+Merged At: '2025-04-25T21:16:43Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/764
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH

@@ -1,0 +1,10 @@
+PR Number: 1044
+Title: '[GEN][ZH] Fix logical expressions for TheGlobalData in TerrainTex and W3DShaderManager'
+Merged At: '2025-06-11T19:42:22Z'
+Author: Caball009
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1044
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix

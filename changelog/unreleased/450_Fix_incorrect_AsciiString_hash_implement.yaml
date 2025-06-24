@@ -1,0 +1,12 @@
+PR Number: 450
+Title: '[GEN][ZH] Fix incorrect AsciiString hash implementation for non-stlport'
+Merged At: '2025-03-29T11:58:43Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/450
+Labels:
+- Major
+- Gen
+- ZH
+- Stability
+Related Pull Requests:
+- 'Merge After #426'

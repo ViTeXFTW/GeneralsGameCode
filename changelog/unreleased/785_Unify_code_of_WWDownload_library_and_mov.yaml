@@ -1,0 +1,10 @@
+PR Number: 785
+Title: Unify code of WWDownload library and move its files to Core
+Merged At: '2025-04-30T18:47:12Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/785
+Labels:
+- Refactor
+- Unify
+Related Pull Requests:
+- 'Relates To #555'

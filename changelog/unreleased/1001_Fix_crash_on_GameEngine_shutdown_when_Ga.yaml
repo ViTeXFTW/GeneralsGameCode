@@ -1,0 +1,12 @@
+PR Number: 1001
+Title: '[GEN][ZH] Fix crash on GameEngine shutdown when GameLogic::clearGameData()
+  was not called before'
+Merged At: '2025-06-06T12:17:46Z'
+Author: helmutbuhler
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1001
+Labels:
+- Major
+- Gen
+- ZH
+- Debug
+- Crash

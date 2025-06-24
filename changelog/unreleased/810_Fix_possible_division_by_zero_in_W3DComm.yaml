@@ -1,0 +1,12 @@
+PR Number: 810
+Title: '[GEN][ZH] Fix possible division by zero in W3DCommandBarGenExpDraw()'
+Merged At: '2025-05-05T17:51:51Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/810
+Labels:
+- Minor
+- Fix
+- Crash
+- Mod
+Related Issues:
+- 'Fixes: #797'

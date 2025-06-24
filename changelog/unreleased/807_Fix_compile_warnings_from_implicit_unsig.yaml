@@ -1,0 +1,9 @@
+PR Number: 807
+Title: '[GEN][ZH] Fix compile warnings from implicit unsigned long to HRESULT conversions
+  in Win32DIKeyboard'
+Merged At: '2025-05-04T13:26:38Z'
+Author: roossienb
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/807
+Labels:
+- Minor
+- CompileBug

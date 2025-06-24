@@ -1,0 +1,15 @@
+PR Number: 874
+Title: '[GEN][ZH] Separate ParticleUplinkCannonUpdate''s damage radius calculation
+  from LaserUpdate''s client update'
+Merged At: '2025-05-28T18:28:01Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/874
+Labels:
+- Minor
+- Gen
+- ZH
+- Refactor
+Related Issues:
+- 'Closes: #862'
+Related Pull Requests:
+- 'Relates To #651'

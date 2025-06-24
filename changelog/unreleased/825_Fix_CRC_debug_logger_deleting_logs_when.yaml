@@ -1,0 +1,10 @@
+PR Number: 825
+Title: '[GEN][ZH] Fix CRC debug logger deleting logs when shellmap is loaded'
+Merged At: '2025-05-07T16:42:39Z'
+Author: helmutbuhler
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/825
+Labels:
+- Minor
+- Debug
+- ThisProject
+- Fix

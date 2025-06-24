@@ -1,0 +1,13 @@
+PR Number: 870
+Title: '[GEN][ZH] Fix undefined behavior with MemoryPoolObject::deleteInstance'
+Merged At: '2025-05-18T06:47:11Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/870
+Labels:
+- Major
+- Gen
+- ZH
+- Fix
+- Stability
+Related Issues:
+- 'Closes: #865'

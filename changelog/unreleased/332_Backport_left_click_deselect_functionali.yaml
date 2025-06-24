@@ -1,0 +1,16 @@
+PR Number: 332
+Title: '[GEN] Backport left click deselect functionality with Alternate Mouse Setup
+  from Zero Hour'
+Merged At: '2025-05-13T19:53:08Z'
+Author: ShizCalev
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/332
+Labels:
+- Enhancement
+- GUI
+- Minor
+- Gen
+- Unify
+Related Issues:
+- 'Resolves: #305'
+Related Pull Requests:
+- 'Relates To #555'

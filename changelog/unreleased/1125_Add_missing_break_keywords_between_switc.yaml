@@ -1,0 +1,9 @@
+PR Number: 1125
+Title: '[GEN][ZH] Add missing break keywords between switch labels in W3DProjectedShadow,
+  W3DDisplay, W3DWater'
+Merged At: '2025-06-21T09:19:22Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1125
+Labels:
+- Minor
+- Refactor

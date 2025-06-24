@@ -1,0 +1,12 @@
+PR Number: 1012
+Title: '[GEN][ZH] Fix ParticleUplinkCannonUpdate mismatch, introduced by previous
+  refactoring'
+Merged At: '2025-06-05T22:05:32Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1012
+Labels:
+- Bug
+- Major
+- Reverted
+Related Pull Requests:
+- 'Follow Up on: #976'

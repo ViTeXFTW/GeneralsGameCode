@@ -1,0 +1,14 @@
+PR Number: 861
+Title: '[GEN][ZH] Demote throw to assert in AsciiString::ensureUniqueBufferOfSize,
+  UnicodeString::ensureUniqueBufferOfSize, Dict::ensureUnique'
+Merged At: '2025-05-16T17:39:16Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/861
+Labels:
+- Minor
+- Gen
+- ZH
+- Fix
+- Stability
+Related Pull Requests:
+- 'Relates To #857'

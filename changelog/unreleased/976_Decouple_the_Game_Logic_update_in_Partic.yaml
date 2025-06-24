@@ -1,0 +1,14 @@
+PR Number: 976
+Title: '[GEN][ZH] Decouple the Game Logic update in ParticleUplinkCannonUpdate from
+  the Orbit To Ground Laser drawable'
+Merged At: '2025-06-04T20:42:05Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/976
+Labels:
+- Minor
+- Reverted
+- Gen
+- ZH
+- Refactor
+Related Pull Requests:
+- 'Follow Up on: #874'

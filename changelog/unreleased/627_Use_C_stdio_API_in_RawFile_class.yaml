@@ -1,0 +1,10 @@
+PR Number: 627
+Title: '[LINUX][ZH] Use C stdio API in RawFile class'
+Merged At: '2025-04-11T19:58:18Z'
+Author: feliwir
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/627
+Labels:
+- Minor
+- ZH
+- Refactor
+- Platform

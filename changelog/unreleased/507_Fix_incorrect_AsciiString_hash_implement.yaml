@@ -1,0 +1,10 @@
+PR Number: 507
+Title: '[GEN] Fix incorrect AsciiString hash implementation for non-stlport'
+Merged At: '2025-03-25T22:55:41Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/507
+Labels:
+- Major
+- Build
+- Gen
+- Stability

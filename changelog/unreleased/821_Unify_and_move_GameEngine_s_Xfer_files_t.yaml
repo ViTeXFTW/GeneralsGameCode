@@ -1,0 +1,9 @@
+PR Number: 821
+Title: '[CORE] Unify and move GameEngine''s Xfer files to Core'
+Merged At: '2025-05-06T20:42:09Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/821
+Labels:
+- Unify
+Related Pull Requests:
+- 'Relates To #555'

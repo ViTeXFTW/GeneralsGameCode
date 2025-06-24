@@ -1,0 +1,9 @@
+PR Number: 983
+Title: Improve use of RETAIL_COMPATIBLE_CRC macro
+Merged At: '2025-05-31T09:09:24Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/983
+Labels:
+- Refactor
+Related Pull Requests:
+- 'Follow Up on: #965'

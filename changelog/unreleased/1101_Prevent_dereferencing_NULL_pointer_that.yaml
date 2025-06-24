@@ -1,0 +1,8 @@
+PR Number: 1101
+Title: '[GEN][ZH] Prevent dereferencing NULL pointer ''that'' in PhysicsBehavior::transferVelocityTo()'
+Merged At: '2025-06-21T09:13:54Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1101
+Labels:
+- Minor
+- Fix

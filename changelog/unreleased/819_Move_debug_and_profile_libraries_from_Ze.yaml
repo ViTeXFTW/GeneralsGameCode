@@ -1,0 +1,10 @@
+PR Number: 819
+Title: '[CORE] Move debug and profile libraries from Zero Hour to Core'
+Merged At: '2025-05-05T20:51:09Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/819
+Labels:
+- Refactor
+- Unify
+Related Pull Requests:
+- 'Relates To #555'

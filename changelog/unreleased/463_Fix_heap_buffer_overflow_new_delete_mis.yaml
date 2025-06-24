@@ -1,0 +1,11 @@
+PR Number: 463
+Title: '[GEN][ZH] Fix heap-buffer-overflow, new/delete mismatch in FontCharsClass::~FontCharsClass'
+Merged At: '2025-04-02T12:44:28Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/463
+Labels:
+- Bug
+- Minor
+- Gen
+- ZH
+- Stability

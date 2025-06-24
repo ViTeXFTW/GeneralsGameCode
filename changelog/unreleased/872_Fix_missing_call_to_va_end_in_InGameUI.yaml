@@ -1,0 +1,11 @@
+PR Number: 872
+Title: '[GEN][ZH] Fix missing call to va_end in InGameUI::messageColor()'
+Merged At: '2025-05-17T10:24:58Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/872
+Labels:
+- Minor
+- ThisProject
+- Fix
+Related Pull Requests:
+- 'Follow Up on: #860'

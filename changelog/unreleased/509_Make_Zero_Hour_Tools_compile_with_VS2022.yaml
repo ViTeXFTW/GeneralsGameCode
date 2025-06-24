@@ -1,0 +1,13 @@
+PR Number: 509
+Title: '[ZH] Make Zero Hour Tools compile with VS2022 c++20'
+Merged At: '2025-03-27T23:56:20Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/509
+Labels:
+- Major
+- Build
+- ZH
+- Tools
+Related Pull Requests:
+- 'Relates To #471'
+- 'Follow Up on: #426'

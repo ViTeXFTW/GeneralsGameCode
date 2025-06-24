@@ -1,0 +1,11 @@
+PR Number: 519
+Title: '[ZH] Fix compilation errors in profile library'
+Merged At: '2025-03-27T17:56:57Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/519
+Labels:
+- Minor
+- Build
+- ZH
+Related Issues:
+- 'Fixes: #490'

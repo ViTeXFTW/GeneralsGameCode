@@ -1,0 +1,10 @@
+PR Number: 804
+Title: '[GEN][ZH] Fix compiler warnings for signed/unsigned mismatch of loop indices'
+Merged At: '2025-05-19T19:39:31Z'
+Author: Mauller
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/804
+Labels:
+- Minor
+- Build
+- Gen
+- ZH

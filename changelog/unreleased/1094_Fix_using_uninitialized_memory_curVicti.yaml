@@ -1,0 +1,9 @@
+PR Number: 1094
+Title: '[GEN][ZH] Fix using uninitialized memory ''curVictim'' in EMPUpdate'
+Merged At: '2025-06-21T09:12:14Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/1094
+Labels:
+- Minor
+- Fix
+- Mod

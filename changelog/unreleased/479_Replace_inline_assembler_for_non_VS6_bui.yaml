@@ -1,0 +1,9 @@
+PR Number: 479
+Title: '[ZH] Replace inline assembler for non VS6 builds'
+Merged At: '2025-04-01T17:43:39Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/479
+Labels:
+- Critical
+- Build
+- ZH

@@ -1,0 +1,12 @@
+PR Number: 542
+Title: '[GEN][ZH] Add cmake configurability for MemoryPool features and debugs, disable
+  slow stack trace'
+Merged At: '2025-03-30T21:57:46Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/542
+Labels:
+- Major
+- Performance
+- Gen
+- ZH
+- Debug

@@ -1,0 +1,13 @@
+PR Number: 988
+Title: '[GEN][ZH] Fix game crash in AIGroup::friend_moveFormationToPos()'
+Merged At: '2025-06-06T20:36:19Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/988
+Labels:
+- Bug
+- Critical
+- Gen
+- ZH
+- Crash
+Related Pull Requests:
+- 'Relates To #850'

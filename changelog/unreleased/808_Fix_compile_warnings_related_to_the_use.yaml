@@ -1,0 +1,8 @@
+PR Number: 808
+Title: '[GEN][ZH] Fix compile warnings related to the use of printf and scanf'
+Merged At: '2025-05-04T13:27:17Z'
+Author: roossienb
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/808
+Labels:
+- Minor
+- CompileBug
