@@ -9,14 +9,15 @@ from pydantic import BaseModel, Field, field_validator
 
 RFC3339 = "%Y-%m-%dT%H:%M:%SZ"
 
-class AppConfig(BaseModel):
+class YamlGeneratorConfig(BaseModel):
     """
     Strongly typed representation of JSON config
     """
     
     repository: str
     output_dir: str
-    token: Optional[str] = None
+    token: Optional[str] = Field(default="", description="GitHub API token, leave empty for unauthenticated requests")
+    time_format: str = Field(default=RFC3339, description="Format for timestamps, default is RFC3339")
     from_date: Optional[datetime] = None
     to_date: Optional[datetime] = None
     fields: List[str] = Field(default_factory=lambda: [
@@ -54,6 +55,6 @@ class AppConfig(BaseModel):
             return False
         return True
     
-def load_config(path: Union[str, Path]) -> AppConfig:
+def load_config(path: Union[str, Path]) -> YamlGeneratorConfig:
     data = json.loads(Path(path).read_text())
-    return AppConfig(**data)
+    return YamlGeneratorConfig(**data)

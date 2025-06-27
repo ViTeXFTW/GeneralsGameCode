@@ -1,0 +1,10 @@
+PR Number: 883
+Title: Add additional logging for calls to DX8W
+Merged At: '2025-05-19T21:07:06Z'
+Author: xezon
+URL: https://github.com/TheSuperHackers/GeneralsGameCode/pull/883
+Labels:
+- minor
+- debug
+Related Pull Requests:
+- 'Split Off from: #846'
