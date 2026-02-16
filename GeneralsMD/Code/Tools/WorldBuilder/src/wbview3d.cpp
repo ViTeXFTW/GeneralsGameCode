@@ -20,7 +20,6 @@
 //
 
 #include "StdAfx.h"
-#include "W3DDevice/GameClient/Module/W3DTreeDraw.h"
 #include "resource.h"
 #include "wwmath.h"
 #include "ww3d.h"
@@ -30,6 +29,7 @@
 #include "intersec.h"
 #include "W3DDevice/GameClient/W3DAssetManager.h"
 #include "W3DDevice/GameClient/Module/W3DModelDraw.h"
+#include "W3DDevice/GameClient/Module/W3DTreeDraw.h"
 #include "agg_def.h"
 #include "part_ldr.h"
 #include "hanim.h"
@@ -1124,7 +1124,8 @@ AsciiString WbView3d::getBestModelName(const ThingTemplate* tt, const ModelCondi
 			// a preview in WB object placer. The W3DTreeDraw module stores its model name
 			// differently from W3DModelDraw.
 			const W3DTreeDrawModuleData* treeData = mdd ? mdd->getAsW3DTreeDrawModuleData() : nullptr;
-			if(treeData) {
+			if (treeData)
+			{
 				return treeData->m_modelName;
 			}
 		}
