@@ -542,7 +542,7 @@ void Shell::showShellMap(Bool useShellMap )
 			TheGameLogic->exitGame();
 
 		TheWritableGlobalData->m_pendingFile = TheGlobalData->m_shellMapName;
-		InitGameLogicRandom(0);
+		InitGameLogicRandom(GameClientRandomValue(0, INT_MAX - 1));
 		GameMessage *msg = TheMessageStream->appendMessage( GameMessage::MSG_NEW_GAME );
 		msg->appendIntegerArgument(GAME_SHELL);
 		m_shellMapOn = TRUE;

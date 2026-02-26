@@ -53,7 +53,7 @@
 #include "GameClient/GameWindowTransitions.h"
 #include "GameClient/DisconnectMenu.h"
 #include "GameLogic/ScriptEngine.h"
-
+#include "GameLogic/LogicRandomValue.h"
 
 
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
@@ -244,7 +244,13 @@ static void restartMissionMenu()
 																																		rankPointsStartedWith)
 							);
 
-		InitRandom(seed);
+		// TheSuperHackers @bugfix ViTeXFTW 26/02/26 Generate a new a new seed value if we are in a singleplayer match
+		// to avoid the same random events happening in the same order as previous match.
+		if (gameMode == GAME_SINGLE_PLAYER) {
+			InitRandom(GameLogicRandomValue(0, INT_MAX - 1));
+		} else {
+			InitRandom(seed);
+		}
 	}
 	//TheTransitionHandler->remove("QuitFull"); //KRISMORNESS ADD
 	//quitMenuLayout = nullptr; //KRISMORNESS ADD
