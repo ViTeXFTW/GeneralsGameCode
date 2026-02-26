@@ -244,7 +244,7 @@ static void restartMissionMenu()
 																																		rankPointsStartedWith)
 							);
 
-		// TheSuperHackers @bugfix ViTeXFTW 26/02/26 Generate a new a new seed value if we are in a singleplayer match
+		// TheSuperHackers @bugfix ViTeXFTW 26/02/26 Generate a new seed value if we are in a singleplayer match
 		// to avoid the same random events happening in the same order as previous match.
 		if (gameMode == GAME_SINGLE_PLAYER) {
 			InitRandom(GameLogicRandomValue(0, INT_MAX - 1));
