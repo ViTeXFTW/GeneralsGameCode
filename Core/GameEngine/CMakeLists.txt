@@ -63,8 +63,11 @@ set(GAMEENGINE_SRC
     Include/Common/INI.h
 #    Include/Common/INIException.h
     Include/Common/INI2/Diagnostic.h
+    Include/Common/INI2/Field.h
+    Include/Common/INI2/LegacyAdapter.h
     Include/Common/INI2/ParseContext.h
     Include/Common/INI2/ParseValue.h
+    Include/Common/INI2/Schema.h
     Include/Common/INI2/SourceLoc.h
     Include/Common/INI2/ValueTypes.h
 #    Include/Common/KindOf.h
