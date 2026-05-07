@@ -70,6 +70,8 @@ set(GAMEENGINE_SRC
     Include/Common/INI2/ParseContext.h
     Include/Common/INI2/ParseSession.h
     Include/Common/INI2/ParseValue.h
+    Include/Common/INI2/Ref.h
+    Include/Common/INI2/Refs.h
     Include/Common/INI2/Schema.h
     Include/Common/INI2/SourceLoc.h
     Include/Common/INI2/ValueTypes.h
@@ -596,6 +598,7 @@ set(GAMEENGINE_SRC
     Source/Common/INI/INI.cpp
     Source/Common/INI2/BlockRegistry.cpp
     Source/Common/INI2/ParseValue.cpp
+    Source/Common/INI2/Refs.cpp
 #    Source/Common/INI/INIAiData.cpp
 #    Source/Common/INI/INIAnimation.cpp
     Source/Common/INI/INIAudioEventInfo.cpp
