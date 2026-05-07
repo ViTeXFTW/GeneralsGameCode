@@ -37,15 +37,18 @@
 namespace INI2
 {
 
+class LoadSession;  // forward; defined in LoadSession.h
+
 /// Context handed to every parseValue<V> call.
 ///
-/// Owns nothing; holds non-owning pointers to the underlying INI reader and
-/// the DiagnosticSink. Cheap to copy/pass by reference.
+/// Owns nothing; holds non-owning pointers to the underlying INI reader,
+/// the DiagnosticSink, and (optionally) the active LoadSession. Cheap to
+/// copy/pass by reference.
 class ParseContext
 {
 public:
-	ParseContext(INI* ini, DiagnosticSink* sink)
-		: m_ini(ini), m_sink(sink) {}
+	ParseContext(INI* ini, DiagnosticSink* sink, LoadSession* load = nullptr)
+		: m_ini(ini), m_sink(sink), m_load(load) {}
 
 	// --- Token access ------------------------------------------------------
 	// These delegate to the existing INI lexer so behavior — including the
@@ -105,9 +108,17 @@ public:
 
 	DiagnosticSink* sink() { return m_sink; }
 
+	/// The active LoadSession, or nullptr if the legacy global mode flag is
+	/// still in effect. Block handlers and store-side override creators
+	/// branch on loadSession() != nullptr && loadSession()->createsOverrides()
+	/// in the new design, replacing 'ini->getLoadType() == INI_LOAD_CREATE_OVERRIDES'.
+	LoadSession*       loadSession()       { return m_load; }
+	const LoadSession* loadSession() const { return m_load; }
+
 private:
 	INI*            m_ini;
 	DiagnosticSink* m_sink;
+	LoadSession*    m_load;   ///< Optional; nullptr when called from the legacy loader path.
 };
 
 } // namespace INI2

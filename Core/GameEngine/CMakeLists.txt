@@ -65,7 +65,9 @@ set(GAMEENGINE_SRC
     Include/Common/INI2/Diagnostic.h
     Include/Common/INI2/Field.h
     Include/Common/INI2/LegacyAdapter.h
+    Include/Common/INI2/LoadSession.h
     Include/Common/INI2/ParseContext.h
+    Include/Common/INI2/ParseSession.h
     Include/Common/INI2/ParseValue.h
     Include/Common/INI2/Schema.h
     Include/Common/INI2/SourceLoc.h
