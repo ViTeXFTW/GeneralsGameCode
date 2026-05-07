@@ -59,6 +59,10 @@
 #include "GameLogic/ScriptEngine.h"
 #include "GameLogic/Weapon.h"
 
+#include "Common/INI2/BlockRegistry.h"
+#include "Common/INI2/LoadSession.h"
+#include "Common/INI2/ParseSession.h"
+
 #if __cplusplus >= 201611L
 #define USE_STD_FROM_CHARS_PARSING 1
 #else
@@ -431,6 +435,108 @@ UnsignedInt INI::load( AsciiString filename, INILoadType loadType, Xfer *pXfer )
 
 	unPrepFile();
 
+	return 1;
+}
+
+//-------------------------------------------------------------------------------------------------
+/** Phase-4 entry point. Same lexer pipeline as load(), but block dispatch
+  * routes through INI2::theBlockRegistry() first and falls back to the
+  * legacy theTypeTable[] only for keywords not yet migrated.
+  *
+  * The legacy mode flag (INILoadType) is derived from the LoadSession's
+  * createsOverrides() so unmigrated handlers that still query
+  * ini->getLoadType() see the correct value (Phase 7+ will retire those
+  * queries entirely once block handlers migrate).
+  *
+  * Xfer save-CRC behavior is preserved — every line still flows through
+  * readLine() which feeds s_xfer->xferUser(). The only difference from
+  * load() is the per-block dispatch decision.
+  */
+//-------------------------------------------------------------------------------------------------
+UnsignedInt INI::loadV2( AsciiString filename, INI2::LoadSession& session, Xfer *pXfer )
+{
+	setFPMode();
+
+	s_xfer = pXfer;
+	const INILoadType legacyFlag = session.createsOverrides()
+		? INI_LOAD_CREATE_OVERRIDES
+		: INI_LOAD_OVERWRITE;
+	prepFile(filename, legacyFlag);
+
+	// Install the diagnostic-sink guard for the duration of this load. The
+	// ParseSession also publishes itself as the active session so block
+	// handlers can reach it via findActiveSession() (added later).
+	INI2::ParseSession ps(this, &session);
+
+	try
+	{
+		DEBUG_ASSERTCRASH( m_endOfFile == FALSE, ("INI::loadV2, EOF at the beginning!") );
+		while( m_endOfFile == FALSE )
+		{
+			readLine();
+
+			AsciiString currentLine = m_buffer;
+
+			const char *token = strtok( m_buffer, getSeps() );
+			if( token )
+			{
+				// Try the new BlockRegistry first.
+				INI2::BlockHandler newHandler = INI2::theBlockRegistry().find(token);
+				if (newHandler != nullptr)
+				{
+					#ifdef DEBUG_CRASHING
+					strcpy(m_curBlockStart, currentLine.str());
+					#endif
+					try {
+						(*newHandler)( ps );
+					} catch (...) {
+						DEBUG_CRASH(("Error parsing block '%s' in INI file '%s'", token, m_filename.str()) );
+						char buff[1024];
+						snprintf(buff, ARRAY_SIZE(buff), "Error parsing INI file '%s' (Line: '%s')\n",
+							m_filename.str(), currentLine.str());
+						throw INIException(buff);
+					}
+					#ifdef DEBUG_CRASHING
+						strcpy(m_curBlockStart, "NO_BLOCK");
+					#endif
+					continue;
+				}
+
+				// Fall back to the legacy theTypeTable[].
+				INIBlockParse legacy = findBlockParse(token);
+				if (legacy != nullptr)
+				{
+					#ifdef DEBUG_CRASHING
+					strcpy(m_curBlockStart, currentLine.str());
+					#endif
+					try {
+						(*legacy)( this );
+					} catch (...) {
+						DEBUG_CRASH(("Error parsing block '%s' in INI file '%s'", token, m_filename.str()) );
+						char buff[1024];
+						snprintf(buff, ARRAY_SIZE(buff), "Error parsing INI file '%s' (Line: '%s')\n",
+							m_filename.str(), currentLine.str());
+						throw INIException(buff);
+					}
+					#ifdef DEBUG_CRASHING
+						strcpy(m_curBlockStart, "NO_BLOCK");
+					#endif
+					continue;
+				}
+
+				DEBUG_CRASH( ("[LINE: %d - FILE: '%s'] Unknown block '%s'",
+					getLineNum(), getFilename().str(), token) );
+				throw INI_UNKNOWN_TOKEN;
+			}
+		}
+	}
+	catch (...)
+	{
+		unPrepFile();
+		throw;
+	}
+
+	unPrepFile();
 	return 1;
 }
 

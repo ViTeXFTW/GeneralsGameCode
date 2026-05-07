@@ -41,6 +41,10 @@ class Xfer;
 class File;
 enum ScienceType CPP_11(: Int);
 
+// Forward-declared so loadV2 can take a LoadSession reference without
+// pulling INI2/LoadSession.h into every consumer of INI.h.
+namespace INI2 { class LoadSession; }
+
 //-------------------------------------------------------------------------------------------------
 /** These control the behavior of loading the INI data into items */
 //-------------------------------------------------------------------------------------------------
@@ -179,6 +183,14 @@ public:
 	// Load one specific INI file by name.
 	// Throws if the INI file is not found or is not read correctly.
 	UnsignedInt load( AsciiString filename, INILoadType loadType, Xfer *pXfer );
+
+	// TheSuperHackers @feature INI2 — Phase 4 of INI parser modernization.
+	// Same lexer pipeline as load() (so Xfer save-CRC behavior is unchanged),
+	// but block dispatch consults INI2::theBlockRegistry() first and falls
+	// back to the legacy theTypeTable[] only for keywords not yet migrated.
+	// Replaces the global INI_LOAD_* mode flag with an explicit LoadSession.
+	// No keywords are migrated yet; later phases will register them.
+	UnsignedInt loadV2( AsciiString filename, INI2::LoadSession& session, Xfer *pXfer = nullptr );
 
 	static Bool isDeclarationOfType( AsciiString blockType, AsciiString blockName, char *bufferToCheck );
 	static Bool isEndOfBlock( char *bufferToCheck );

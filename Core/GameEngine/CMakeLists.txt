@@ -62,6 +62,7 @@ set(GAMEENGINE_SRC
 #    Include/Common/IgnorePreferences.h
     Include/Common/INI.h
 #    Include/Common/INIException.h
+    Include/Common/INI2/BlockRegistry.h
     Include/Common/INI2/Diagnostic.h
     Include/Common/INI2/Field.h
     Include/Common/INI2/LegacyAdapter.h
@@ -593,6 +594,7 @@ set(GAMEENGINE_SRC
     Source/Common/GameUtility.cpp
 #    Source/Common/GlobalData.cpp
     Source/Common/INI/INI.cpp
+    Source/Common/INI2/BlockRegistry.cpp
     Source/Common/INI2/ParseValue.cpp
 #    Source/Common/INI/INIAiData.cpp
 #    Source/Common/INI/INIAnimation.cpp
