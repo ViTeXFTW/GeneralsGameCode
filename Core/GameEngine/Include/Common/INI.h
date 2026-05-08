@@ -214,7 +214,7 @@ public:
 	static void parseWebpageURLDefinition( INI *ini );
 	static void parseHeaderTemplateDefinition( INI *ini );
 	static void parseParticleSystemDefinition( INI *ini );
-	static void parseWaterSettingDefinition( INI *ini );
+	// parseWaterSettingDefinition migrated to INI2 (Phase 6); see Core/Source/GameClient/Water.cpp.
 	static void parseWaterTransparencyDefinition( INI *ini );
 	static void parseWeatherDefinition( INI *ini );
 	static void parseMappedImageDefinition( INI *ini );

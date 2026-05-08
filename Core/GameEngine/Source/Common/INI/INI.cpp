@@ -149,7 +149,7 @@ static const BlockParse theTypeTable[] =
 	{ "Terrain",                        INI::parseTerrainDefinition },
 	{ "Upgrade",                        INI::parseUpgradeDefinition },
 	{ "Video",                          INI::parseVideoDefinition },
-	{ "WaterSet",                       INI::parseWaterSettingDefinition },
+	// "WaterSet" migrated to INI2 (Phase 6); see Core/Source/GameClient/Water.cpp.
 	{ "WaterTransparency",              INI::parseWaterTransparencyDefinition },
 	{ "Weapon",                         INI::parseWeaponTemplateDefinition },
 	{ "Weather",                        INI::parseWeatherDefinition },
@@ -376,6 +376,18 @@ UnsignedInt INI::load( AsciiString filename, INILoadType loadType, Xfer *pXfer )
 	s_xfer = pXfer;
 	prepFile(filename, loadType);
 
+	// TheSuperHackers @feature INI2 — Phase 6.
+	// Auto-construct a LoadSession derived from the legacy mode flag so
+	// migrated handlers registered via INI2_REGISTER_BLOCK see the right
+	// override mode. ParseSession installs a thread-local DiagnosticSink
+	// guard for the lifetime of this load. The legacy code path is
+	// otherwise unchanged: handlers still in theTypeTable[] receive a
+	// raw INI* via their existing INIBlockParse signature.
+	INI2::LoadSession autoLs(loadType == INI_LOAD_CREATE_OVERRIDES
+		? INI2::LoadMode::MapOverride
+		: INI2::LoadMode::Initial);
+	INI2::ParseSession autoPs(this, &autoLs);
+
 	try
 	{
 
@@ -392,11 +404,35 @@ UnsignedInt INI::load( AsciiString filename, INILoadType loadType, Xfer *pXfer )
 			const char *token = strtok( m_buffer, getSeps() );
 			if( token )
 			{
+				// Phase 6: try the new BlockRegistry first, so keywords
+				// migrated to INI2 dispatch through the typed handler.
+				INI2::BlockHandler newHandler = INI2::theBlockRegistry().find(token);
+				if (newHandler != nullptr)
+				{
+					#ifdef DEBUG_CRASHING
+					static_assert(ARRAY_SIZE(m_curBlockStart) >= ARRAY_SIZE(m_buffer), "Incorrect array size");
+					strcpy(m_curBlockStart, currentLine.str());
+					#endif
+					try {
+						(*newHandler)( autoPs );
+					} catch (...) {
+						DEBUG_CRASH(("Error parsing block '%s' in INI file '%s'", token, m_filename.str()) );
+						char buff[1024];
+						snprintf(buff, ARRAY_SIZE(buff), "Error parsing INI file '%s' (Line: '%s')\n",
+							m_filename.str(), currentLine.str());
+						throw INIException(buff);
+					}
+					#ifdef DEBUG_CRASHING
+						strcpy(m_curBlockStart, "NO_BLOCK");
+					#endif
+					continue;
+				}
+
+				// Legacy theTypeTable[] fallback for keywords not yet migrated.
 				INIBlockParse parse = findBlockParse(token);
 				if (parse)
 				{
 					#ifdef DEBUG_CRASHING
-					static_assert(ARRAY_SIZE(m_curBlockStart) >= ARRAY_SIZE(m_buffer), "Incorrect array size");
 					strcpy(m_curBlockStart, m_buffer);
 					#endif
 					try {

@@ -36,6 +36,7 @@
 
 //-------------------------------------------------------------------------------------------------
 struct FieldParse;
+namespace INI2 { template <typename T> class Schema; }
 
 //-------------------------------------------------------------------------------------------------
 /** This structures keeps the settings for how our water will look */
@@ -48,10 +49,17 @@ public:
 	WaterSetting();
 	virtual ~WaterSetting();
 
-	/// Get the INI parsing table for loading
-	const FieldParse *getFieldParse() { return m_waterSettingFieldParseTable; }
+	/// INI2 schema for this class. Single source of truth — replaces the
+	/// legacy m_waterSettingFieldParseTable[]. The schema lazily emits a
+	/// legacy FieldParse[] equivalent so the existing INI::initFromINI
+	/// driver can consume it unchanged.
+	static INI2::Schema<WaterSetting>& schema();
 
-	static const FieldParse m_waterSettingFieldParseTable[];		///< the parse table for INI definition
+	/// Returns the legacy FieldParse[] view of schema() for compatibility
+	/// with code that still expects a FieldParse* pointer (notably
+	/// INI::initFromINI). Implementation in Water.cpp.
+	const FieldParse* getFieldParse() const;
+
 	AsciiString m_skyTextureFile;
 	AsciiString m_waterTextureFile;
 	Int m_waterRepeatCount;
@@ -64,6 +72,7 @@ public:
 	RGBAColorInt m_transparentWaterDiffuse;
 	Real m_uScrollPerMs;
 	Real m_vScrollPerMs;
+
 
 };
 

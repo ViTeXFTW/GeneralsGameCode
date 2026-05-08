@@ -42,48 +42,15 @@
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-//-------------------------------------------------------------------------------------------------
-/** Water setting, note that this does not support override situations.  As the water
-	* system becomes more complex we may want to change this */
-//-------------------------------------------------------------------------------------------------
-void INI::parseWaterSettingDefinition( INI* ini )
-{
-	AsciiString name;
-	WaterSetting *waterSetting = nullptr;
-
-	// read the name
-	const char* token = ini->getNextToken();
-
-	name.set( token );
-
-	// get the water setting we want to load based on name
-	const char *const *timeOfDayName = TimeOfDayNames;
-	Int timeOfDayIndex = 0;  // TIME_OF_DAY_INVALID
-	while( timeOfDayName && *timeOfDayName )
-	{
-
-		if( stricmp( *timeOfDayName, name.str() ) == 0 )
-		{
-
-			waterSetting = &WaterSettings[ timeOfDayIndex ];
-			break;
-
-		}
-
-		// next name
-		timeOfDayName++;
-		timeOfDayIndex++;
-
-	}
-
-	// check for no time of day match
-	if( waterSetting == nullptr )
-		throw INI_INVALID_DATA;
-
-	// parse the data
-	ini->initFromINI( waterSetting, waterSetting->getFieldParse() );
-
-}
+// parseWaterSettingDefinition was migrated to INI2 in Phase 6 of the parser
+// modernization; the schema-based replacement lives in
+// Core/Source/GameClient/Water.cpp and registers itself for the "WaterSet"
+// keyword via INI2_REGISTER_BLOCK at static-init time.
+//
+// This file still owns parseWaterTransparencyDefinition because that block
+// uses the Overridable chain machinery (markAsOverride / getFinalOverride /
+// skybox swap) and is migrated in a later phase that introduces
+// Schema-aware override sessions.
 
 //-------------------------------------------------------------------------------------------------
 void INI::parseWaterTransparencyDefinition( INI *ini )

@@ -32,31 +32,90 @@
 
 #include "GameClient/Water.h"
 #include "Common/INI.h"
+#include "Common/INIException.h"
+
+#include "Common/INI2/BlockRegistry.h"
+#include "Common/INI2/ParseSession.h"
+#include "Common/INI2/Schema.h"
 
 // GLOBALS ////////////////////////////////////////////////////////////////////////////////////////
 WaterSetting WaterSettings[ TIME_OF_DAY_COUNT ];
 OVERRIDE<WaterTransparencySetting> TheWaterTransparency = nullptr;
 
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
-const FieldParse WaterSetting::m_waterSettingFieldParseTable[] =
+//
+// Phase 6 of the INI2 migration: the WaterSetting field list is now declared
+// as a typed Schema<WaterSetting> rather than the legacy hand-typed
+// FieldParse[] array. The schema lazily emits an equivalent legacy
+// FieldParse[] (matching offsets, member-pointer-derived; matching tokens;
+// matching parsers via the legacyTrampoline<WaterSetting> bridge), so the
+// existing INI::initFromINI driver consumes it unchanged. Behavior is
+// byte-for-byte identical to the prior table.
+//
+INI2::Schema<WaterSetting>& WaterSetting::schema()
 {
+	static INI2::Schema<WaterSetting> s = []{
+		INI2::Schema<WaterSetting> schema;
+		schema.add("SkyTexture",              &WaterSetting::m_skyTextureFile);
+		schema.add("WaterTexture",            &WaterSetting::m_waterTextureFile);
+		schema.add("Vertex00Color",           &WaterSetting::m_vertex00Diffuse);
+		schema.add("Vertex10Color",           &WaterSetting::m_vertex10Diffuse);
+		schema.add("Vertex01Color",           &WaterSetting::m_vertex01Diffuse);
+		schema.add("Vertex11Color",           &WaterSetting::m_vertex11Diffuse);
+		schema.add("DiffuseColor",            &WaterSetting::m_waterDiffuseColor);
+		schema.add("TransparentDiffuseColor", &WaterSetting::m_transparentWaterDiffuse);
+		schema.add("UScrollPerMS",            &WaterSetting::m_uScrollPerMs);
+		schema.add("VScrollPerMS",            &WaterSetting::m_vScrollPerMs);
+		schema.add("SkyTexelsPerUnit",        &WaterSetting::m_skyTexelsPerUnit);
+		schema.add("WaterRepeatCount",        &WaterSetting::m_waterRepeatCount);
+		return schema;
+	}();
+	return s;
+}
 
-	{ "SkyTexture",									INI::parseAsciiString,			nullptr, offsetof( WaterSetting, m_skyTextureFile ) },
-	{ "WaterTexture",								INI::parseAsciiString,			nullptr, offsetof( WaterSetting, m_waterTextureFile ) },
-  { "Vertex00Color",							INI::parseRGBAColorInt,			nullptr, offsetof( WaterSetting, m_vertex00Diffuse ) },
-	{ "Vertex10Color",							INI::parseRGBAColorInt,			nullptr, offsetof( WaterSetting, m_vertex10Diffuse ) },
-	{ "Vertex01Color",							INI::parseRGBAColorInt,			nullptr, offsetof( WaterSetting, m_vertex01Diffuse ) },
-  { "Vertex11Color",							INI::parseRGBAColorInt,			nullptr, offsetof( WaterSetting, m_vertex11Diffuse ) },
-	{ "DiffuseColor",								INI::parseRGBAColorInt,			nullptr, offsetof( WaterSetting, m_waterDiffuseColor ) },
-  { "TransparentDiffuseColor",		INI::parseRGBAColorInt,			nullptr, offsetof( WaterSetting, m_transparentWaterDiffuse ) },
-  { "UScrollPerMS",								INI::parseReal,							nullptr, offsetof( WaterSetting, m_uScrollPerMs ) },
-  { "VScrollPerMS",								INI::parseReal,							nullptr, offsetof( WaterSetting, m_vScrollPerMs ) },
-	{ "SkyTexelsPerUnit",						INI::parseReal,							nullptr, offsetof( WaterSetting, m_skyTexelsPerUnit ) },
-  { "WaterRepeatCount",						INI::parseInt,							nullptr, offsetof( WaterSetting, m_waterRepeatCount ) },
+const FieldParse* WaterSetting::getFieldParse() const
+{
+	return schema().asLegacyFieldParse();
+}
 
-	{ nullptr,													nullptr,												nullptr, 0 },
+// Block handler: registered via INI2_REGISTER_BLOCK below. Replaces the
+// legacy INI::parseWaterSettingDefinition (formerly in INIWater.cpp). The
+// dispatch logic is unchanged: look up the time-of-day index by name,
+// then walk the body via initFromINI against the schema-emitted table.
+namespace
+{
+	void parseWaterSettingDefinitionV2(INI2::ParseSession& session)
+	{
+		INI* ini = session.ini();
+		AsciiString name(ini->getNextToken());
 
-};
+		// Find the matching time-of-day index.
+		WaterSetting* setting = nullptr;
+		const char* const* todName = TimeOfDayNames;
+		Int todIdx = 0;
+		while (todName != nullptr && *todName != nullptr)
+		{
+			if (stricmp(*todName, name.str()) == 0)
+			{
+				setting = &WaterSettings[todIdx];
+				break;
+			}
+			++todName;
+			++todIdx;
+		}
+
+		if (setting == nullptr)
+		{
+			DEBUG_CRASH(("[LINE: %d - FILE: '%s'] WaterSet name '%s' is not a valid time-of-day",
+				ini->getLineNum(), ini->getFilename().str(), name.str()));
+			throw INI_INVALID_DATA;
+		}
+
+		ini->initFromINI(setting, WaterSetting::schema().asLegacyFieldParse());
+	}
+
+	INI2_REGISTER_BLOCK("WaterSet", &parseWaterSettingDefinitionV2);
+}
 
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 const FieldParse WaterTransparencySetting::m_waterTransparencySettingFieldParseTable[] =
