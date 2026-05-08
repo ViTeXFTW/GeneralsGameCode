@@ -122,6 +122,8 @@ static const char *const TheLocomotorBehaviorZNames[] =
 static_assert(ARRAY_SIZE(TheLocomotorBehaviorZNames) == LOCOMOTOR_BEHAVIOR_Z_COUNT + 1, "Array size");
 #endif
 
+namespace INI2 { template <typename T> class Schema; }
+
 //-------------------------------------------------------------------------------------------------
 class LocomotorTemplate : public Overridable
 {
@@ -132,7 +134,13 @@ public:
 
 	LocomotorTemplate();
 
-	/// field table for loading the values from an INI
+	/// INI2 schema. Single source of truth; replaces the legacy hand-typed
+	/// FieldParse[] in Locomotor.cpp. Defined in GeneralsMD/Locomotor.cpp.
+	static INI2::Schema<LocomotorTemplate>& schema();
+
+	/// field table for loading the values from an INI. Returns
+	/// schema().asLegacyFieldParse() so callers that still expect a
+	/// FieldParse* (notably INI::initFromINI) keep working.
 	const FieldParse* getFieldParse() const;
 
 	void friend_setName(const AsciiString& n) { m_name = n; }

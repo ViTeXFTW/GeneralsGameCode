@@ -100,6 +100,24 @@ public:
 		return *this;
 	}
 
+	/// Add a legacy-style row that drives a hand-written parser with
+	/// userData, bypassing the typed parseValue<V> dispatch. Used for
+	/// migrating fields whose value type the typed system does not yet
+	/// cover (enum-name-table-driven parsers, custom per-class parsers).
+	///
+	/// The offset is still derived from the type-checked pointer-to-member
+	/// `member`, so the row's destination is compile-time-verified to live
+	/// in T even though the parser is legacy.
+	template <typename V>
+	Schema& addRaw(const char* token, V T::* member,
+	               INIFieldParseProc parser, const void* userData)
+	{
+		assertNotFinalized();
+		auto field = std::make_unique<RawField<T> >(token, member, parser, userData);
+		m_fields.push_back(std::move(field));
+		return *this;
+	}
+
 	/// Set documentation on the most recently added field. Used by Phase 12
 	/// schema export.
 	Schema& doc(const char* documentation)
@@ -189,14 +207,14 @@ public:
 			inheritedCount += countParentRows(inh.table);
 		m_legacyTable.reserve(m_fields.size() + inheritedCount + 1);
 
-		// Own fields.
+		// Own fields. emitLegacyRow handles the typed-vs-raw distinction:
+		// Field<T,V> emits a row that routes through legacyTrampoline<T>;
+		// RawField<T> emits a row that points directly at the legacy
+		// parser function with its userData (no trampoline).
 		for (const auto& f : m_fields)
 		{
 			FieldParse row;
-			row.token    = f->token;
-			row.parse    = &legacyTrampoline<T>;
-			row.userData = f.get();
-			row.offset   = static_cast<Int>(f->offset);
+			f->emitLegacyRow(row);
 			m_legacyTable.push_back(row);
 		}
 

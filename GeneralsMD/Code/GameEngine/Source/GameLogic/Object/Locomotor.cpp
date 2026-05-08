@@ -36,13 +36,19 @@
 #define DEFINE_LOCO_APPEARANCE_NAMES
 
 #include "Common/INI.h"
+#include "Common/INIException.h"
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/PartitionManager.h"
 #include "GameLogic/Locomotor.h"
+#include "GameLogic/LocomotorSet.h"
 #include "GameLogic/Object.h"
 #include "GameLogic/AI.h"
 #include "GameLogic/AIPathfind.h"
 #include "GameLogic/Module/PhysicsUpdate.h"
+
+#include "Common/INI2/BlockRegistry.h"
+#include "Common/INI2/ParseSession.h"
+#include "Common/INI2/Schema.h"
 #include "GameLogic/Module/BodyModule.h"
 #include "GameLogic/Module/AIUpdate.h"
 
@@ -433,77 +439,94 @@ static void parseFrictionPerSec( INI* ini, void * /*instance*/, void *store, con
 }
 
 //-------------------------------------------------------------------------------------------------
+// Phase 7 of the INI2 migration: the LocomotorTemplate field list is now
+// declared as a typed Schema<LocomotorTemplate> rather than the legacy
+// hand-typed FieldParse[] array. Most fields are typed via Schema::add()
+// with a Unit tag selecting the matching unit-aware parser; five fields
+// use Schema::addRaw() to plug in legacy parsers driven by name-table
+// userData (parseBitString32, parseIndexList) or a class-local custom
+// parser (parseFrictionPerSec). The schema's asLegacyFieldParse() emits
+// an equivalent flat FieldParse[] in declaration order, so the existing
+// initFromINI driver consumes it unchanged. Behavior is byte-for-byte
+// identical to the prior table.
+INI2::Schema<LocomotorTemplate>& LocomotorTemplate::schema()
+{
+	static INI2::Schema<LocomotorTemplate> s = []{
+		using LT = LocomotorTemplate;
+		using Unit = INI2::Unit;
+		INI2::Schema<LT> schema;
+
+		schema.addRaw("Surfaces",                 &LT::m_surfaces, INI::parseBitString32, TheLocomotorSurfaceTypeNames);
+		schema.add   ("Speed",                    &LT::m_maxSpeed,                Unit::DistPerSecToDistPerFrame);
+		schema.add   ("SpeedDamaged",             &LT::m_maxSpeedDamaged,         Unit::DistPerSecToDistPerFrame);
+		schema.add   ("TurnRate",                 &LT::m_maxTurnRate,             Unit::DegPerSecToRadPerFrame);
+		schema.add   ("TurnRateDamaged",          &LT::m_maxTurnRateDamaged,      Unit::DegPerSecToRadPerFrame);
+		schema.add   ("Acceleration",             &LT::m_acceleration,            Unit::DistPerSec2ToDistPerFrame2);
+		schema.add   ("AccelerationDamaged",      &LT::m_accelerationDamaged,     Unit::DistPerSec2ToDistPerFrame2);
+		schema.add   ("Lift",                     &LT::m_lift,                    Unit::DistPerSec2ToDistPerFrame2);
+		schema.add   ("LiftDamaged",              &LT::m_liftDamaged,             Unit::DistPerSec2ToDistPerFrame2);
+		schema.add   ("Braking",                  &LT::m_braking,                 Unit::DistPerSec2ToDistPerFrame2);
+		schema.add   ("MinSpeed",                 &LT::m_minSpeed,                Unit::DistPerSecToDistPerFrame);
+		schema.add   ("MinTurnSpeed",             &LT::m_minTurnSpeed,            Unit::DistPerSecToDistPerFrame);
+		schema.add   ("PreferredHeight",          &LT::m_preferredHeight);
+		schema.add   ("PreferredHeightDamping",   &LT::m_preferredHeightDamping);
+		schema.add   ("CirclingRadius",           &LT::m_circlingRadius);
+		schema.addRaw("Extra2DFriction",          &LT::m_extra2DFriction,    parseFrictionPerSec, nullptr);
+		schema.add   ("SpeedLimitZ",              &LT::m_speedLimitZ,             Unit::DistPerSecToDistPerFrame);
+		schema.add   ("MaxThrustAngle",           &LT::m_maxThrustAngle,          Unit::Degrees);    // angle, not angular-vel
+		schema.addRaw("ZAxisBehavior",            &LT::m_behaviorZ,    INI::parseIndexList, TheLocomotorBehaviorZNames);
+		schema.addRaw("Appearance",               &LT::m_appearance,   INI::parseIndexList, TheLocomotorAppearanceNames);
+		schema.addRaw("GroupMovementPriority",    &LT::m_movePriority, INI::parseIndexList, TheLocomotorPriorityNames);
+
+		schema.add   ("AccelerationPitchLimit",   &LT::m_accelPitchLimit,         Unit::Degrees);
+		schema.add   ("DecelerationPitchLimit",   &LT::m_decelPitchLimit,         Unit::Degrees);
+		schema.add   ("BounceAmount",             &LT::m_bounceKick,              Unit::DegPerSecToRadPerFrame);
+		schema.add   ("PitchStiffness",           &LT::m_pitchStiffness);
+		schema.add   ("RollStiffness",            &LT::m_rollStiffness);
+		schema.add   ("PitchDamping",             &LT::m_pitchDamping);
+		schema.add   ("RollDamping",              &LT::m_rollDamping);
+		schema.add   ("ThrustRoll",               &LT::m_thrustRoll);
+		schema.add   ("ThrustWobbleRate",         &LT::m_wobbleRate);
+		schema.add   ("ThrustMinWobble",          &LT::m_minWobble);
+		schema.add   ("ThrustMaxWobble",          &LT::m_maxWobble);
+		schema.add   ("PitchInDirectionOfZVelFactor",  &LT::m_pitchByZVelCoef);
+		schema.add   ("ForwardVelocityPitchFactor",    &LT::m_forwardVelCoef);
+		schema.add   ("LateralVelocityRollFactor",     &LT::m_lateralVelCoef);
+		schema.add   ("ForwardAccelerationPitchFactor",&LT::m_forwardAccelCoef);
+		schema.add   ("LateralAccelerationRollFactor", &LT::m_lateralAccelCoef);
+		schema.add   ("UniformAxialDamping",      &LT::m_uniformAxialDamping);
+		schema.add   ("TurnPivotOffset",          &LT::m_turnPivotOffset);
+		schema.add   ("Apply2DFrictionWhenAirborne",   &LT::m_apply2DFrictionWhenAirborne);
+		schema.add   ("DownhillOnly",             &LT::m_downhillOnly);
+		schema.add   ("AllowAirborneMotiveForce", &LT::m_allowMotiveForceWhileAirborne);
+		schema.add   ("LocomotorWorksWhenDead",   &LT::m_locomotorWorksWhenDead);
+		schema.add   ("AirborneTargetingHeight",  &LT::m_airborneTargetingHeight);
+		schema.add   ("StickToGround",            &LT::m_stickToGround);
+		schema.add   ("CanMoveBackwards",         &LT::m_canMoveBackward);
+		schema.add   ("HasSuspension",            &LT::m_hasSuspension);
+		schema.add   ("FrontWheelTurnAngle",      &LT::m_wheelTurnAngle,          Unit::Degrees);
+		schema.add   ("MaximumWheelExtension",    &LT::m_maximumWheelExtension);
+		schema.add   ("MaximumWheelCompression",  &LT::m_maximumWheelCompression);
+		schema.add   ("CloseEnoughDist",          &LT::m_closeEnoughDist);
+		schema.add   ("CloseEnoughDist3D",        &LT::m_isCloseEnoughDist3D);
+		schema.add   ("SlideIntoPlaceTime",       &LT::m_ultraAccurateSlideIntoPlaceFactor, Unit::MillisecondsToFrames);
+
+		schema.add   ("WanderWidthFactor",        &LT::m_wanderWidthFactor);
+		schema.add   ("WanderLengthFactor",       &LT::m_wanderLengthFactor);
+		schema.add   ("WanderAboutPointRadius",   &LT::m_wanderAboutPointRadius);
+
+		schema.add   ("RudderCorrectionDegree",   &LT::m_rudderCorrectionDegree);
+		schema.add   ("RudderCorrectionRate",     &LT::m_rudderCorrectionRate);
+		schema.add   ("ElevatorCorrectionDegree", &LT::m_elevatorCorrectionDegree);
+		schema.add   ("ElevatorCorrectionRate",   &LT::m_elevatorCorrectionRate);
+		return schema;
+	}();
+	return s;
+}
+
 const FieldParse* LocomotorTemplate::getFieldParse() const
 {
-	static const FieldParse TheFieldParse[] =
-	{
-		{ "Surfaces", INI::parseBitString32, TheLocomotorSurfaceTypeNames, offsetof(LocomotorTemplate, m_surfaces) },
-		{ "Speed", INI::parseVelocityReal, nullptr, offsetof(LocomotorTemplate, m_maxSpeed) },
-		{ "SpeedDamaged", INI::parseVelocityReal, nullptr, offsetof( LocomotorTemplate, m_maxSpeedDamaged ) },
-		{ "TurnRate", INI::parseAngularVelocityReal, nullptr, offsetof(LocomotorTemplate, m_maxTurnRate) },
-		{ "TurnRateDamaged", INI::parseAngularVelocityReal, nullptr, offsetof( LocomotorTemplate, m_maxTurnRateDamaged ) },
-		{ "Acceleration", INI::parseAccelerationReal, nullptr, offsetof(LocomotorTemplate, m_acceleration) },
-		{ "AccelerationDamaged", INI::parseAccelerationReal, nullptr, offsetof( LocomotorTemplate, m_accelerationDamaged ) },
-		{ "Lift", INI::parseAccelerationReal, nullptr, offsetof(LocomotorTemplate, m_lift) },
-		{ "LiftDamaged", INI::parseAccelerationReal, nullptr, offsetof( LocomotorTemplate, m_liftDamaged ) },
-		{ "Braking", INI::parseAccelerationReal, nullptr, offsetof(LocomotorTemplate, m_braking) },
-		{ "MinSpeed", INI::parseVelocityReal, nullptr, offsetof(LocomotorTemplate, m_minSpeed) },
-		{ "MinTurnSpeed", INI::parseVelocityReal, nullptr, offsetof(LocomotorTemplate, m_minTurnSpeed) },
-		{ "PreferredHeight", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_preferredHeight) },
-		{ "PreferredHeightDamping", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_preferredHeightDamping) },
-		{ "CirclingRadius", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_circlingRadius) },
-		{ "Extra2DFriction", parseFrictionPerSec, nullptr, offsetof(LocomotorTemplate, m_extra2DFriction) },
-		{ "SpeedLimitZ", INI::parseVelocityReal, nullptr, offsetof(LocomotorTemplate, m_speedLimitZ) },
-		{ "MaxThrustAngle", INI::parseAngleReal, nullptr, offsetof(LocomotorTemplate, m_maxThrustAngle) },		// yes, angle, not angular-vel
-		{ "ZAxisBehavior", INI::parseIndexList, TheLocomotorBehaviorZNames, offsetof(LocomotorTemplate, m_behaviorZ) },
-		{ "Appearance", INI::parseIndexList, TheLocomotorAppearanceNames, offsetof(LocomotorTemplate, m_appearance) },		\
-		{ "GroupMovementPriority", INI::parseIndexList, TheLocomotorPriorityNames, offsetof(LocomotorTemplate, m_movePriority) },		\
-
-		{ "AccelerationPitchLimit", INI::parseAngleReal, nullptr, offsetof(LocomotorTemplate, m_accelPitchLimit) },
-		{ "DecelerationPitchLimit", INI::parseAngleReal, nullptr, offsetof(LocomotorTemplate, m_decelPitchLimit) },
-		{ "BounceAmount", INI::parseAngularVelocityReal, nullptr, offsetof(LocomotorTemplate, m_bounceKick) },
-		{ "PitchStiffness", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_pitchStiffness) },
-		{ "RollStiffness", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_rollStiffness) },
-		{ "PitchDamping", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_pitchDamping) },
-		{ "RollDamping", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_rollDamping) },
-		{ "ThrustRoll", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_thrustRoll) },
-		{ "ThrustWobbleRate",	INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_wobbleRate) },
-		{ "ThrustMinWobble",	INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_minWobble) },
-		{ "ThrustMaxWobble",	INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_maxWobble) },
-		{ "PitchInDirectionOfZVelFactor", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_pitchByZVelCoef) },
-		{ "ForwardVelocityPitchFactor", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_forwardVelCoef) },
-		{ "LateralVelocityRollFactor", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_lateralVelCoef) },
-		{ "ForwardAccelerationPitchFactor", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_forwardAccelCoef) },
-		{ "LateralAccelerationRollFactor", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_lateralAccelCoef) },
-		{ "UniformAxialDamping", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_uniformAxialDamping) },
-		{ "TurnPivotOffset", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_turnPivotOffset) },
-		{ "Apply2DFrictionWhenAirborne", INI::parseBool, nullptr, offsetof(LocomotorTemplate, m_apply2DFrictionWhenAirborne) },
-		{ "DownhillOnly", INI::parseBool, nullptr, offsetof(LocomotorTemplate, m_downhillOnly) },
-		{ "AllowAirborneMotiveForce", INI::parseBool, nullptr, offsetof(LocomotorTemplate, m_allowMotiveForceWhileAirborne) },
-		{ "LocomotorWorksWhenDead", INI::parseBool, nullptr, offsetof(LocomotorTemplate, m_locomotorWorksWhenDead) },
-		{ "AirborneTargetingHeight", INI::parseInt, nullptr, offsetof( LocomotorTemplate, m_airborneTargetingHeight ) },
-		{ "StickToGround",				INI::parseBool,			nullptr,	offsetof(LocomotorTemplate, m_stickToGround) },
-		{ "CanMoveBackwards",				INI::parseBool,			nullptr,	offsetof(LocomotorTemplate, m_canMoveBackward) },
-		{ "HasSuspension",				INI::parseBool,			nullptr,	offsetof(LocomotorTemplate, m_hasSuspension) },
-		{ "FrontWheelTurnAngle", INI::parseAngleReal, nullptr, offsetof(LocomotorTemplate, m_wheelTurnAngle) },
-		{ "MaximumWheelExtension", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_maximumWheelExtension) },
-		{ "MaximumWheelCompression", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_maximumWheelCompression) },
-		{ "CloseEnoughDist",				 INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_closeEnoughDist) },
-		{ "CloseEnoughDist3D",			 INI::parseBool, nullptr, offsetof(LocomotorTemplate, m_isCloseEnoughDist3D) },
-		{ "SlideIntoPlaceTime",		INI::parseDurationReal, nullptr, offsetof(LocomotorTemplate, m_ultraAccurateSlideIntoPlaceFactor) },
-
-		{ "WanderWidthFactor", INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_wanderWidthFactor) },
-		{ "WanderLengthFactor",				 INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_wanderLengthFactor) },
-		{ "WanderAboutPointRadius",				 INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_wanderAboutPointRadius) },
-
-		{ "RudderCorrectionDegree",		 INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_rudderCorrectionDegree) },
-		{ "RudderCorrectionRate",			 INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_rudderCorrectionRate) },
-		{ "ElevatorCorrectionDegree",	 INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_elevatorCorrectionDegree) },
-		{ "ElevatorCorrectionRate",		 INI::parseReal, nullptr, offsetof(LocomotorTemplate, m_elevatorCorrectionRate) },
-		{ nullptr, nullptr, nullptr, 0 }
-
-	};
-	return TheFieldParse;
+	return schema().asLegacyFieldParse();
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -601,6 +624,15 @@ LocomotorTemplate *LocomotorStore::newOverride( LocomotorTemplate *locoTemplate 
 //-------------------------------------------------------------------------------------------------
 /*static*/ void LocomotorStore::parseLocomotorTemplateDefinition(INI* ini)
 {
+	// Legacy path. Retained for vanilla Generals (whose theTypeTable[]
+	// "Locomotor" entry references INI::parseLocomotorTemplateDefinition,
+	// which forwards here) and as a linker reference for the GeneralsMD
+	// build whose Core/INI.cpp theTypeTable[] still names this symbol.
+	//
+	// At runtime in GeneralsMD this method is never reached because
+	// INI::load consults INI2::theBlockRegistry() first (Phase 6 change),
+	// and parseLocomotorTemplateDefinitionV2 is registered for "Locomotor"
+	// at static-init time below.
 	if (!TheLocomotorStore)
 		throw INI_INVALID_DATA;
 
@@ -636,6 +668,77 @@ LocomotorTemplate *LocomotorStore::newOverride( LocomotorTemplate *locoTemplate 
 /*static*/ void INI::parseLocomotorTemplateDefinition( INI* ini )
 {
 	LocomotorStore::parseLocomotorTemplateDefinition(ini);
+}
+
+//-------------------------------------------------------------------------------------------------
+// Phase 7 of the INI2 migration: BlockRegistry-registered handler that
+// replaces the legacy LocomotorStore::parseLocomotorTemplateDefinition.
+//
+// Override-mode branching now uses session.loadSession()->createsOverrides()
+// in place of the legacy ini->getLoadType() == INI_LOAD_CREATE_OVERRIDES
+// check. The Overridable-chain wiring (newOverride / setNextOverride /
+// markAsOverride) and the per-store reset() teardown via deleteOverrides()
+// remain unchanged — this commit only changes how the load decides to
+// take the override branch, not how overrides are represented or cleaned
+// up. The auto-LoadSession constructed by INI::load (Phase 6) carries the
+// MapOverride mode through, and session.recordOverride() captures every
+// override created during the session for tests and diagnostics.
+namespace
+{
+	void parseLocomotorTemplateDefinitionV2(INI2::ParseSession& session)
+	{
+		if (!TheLocomotorStore)
+			throw INI_INVALID_DATA;
+
+		INI* ini = session.ini();
+		const Bool createsOverride = session.loadSession() != nullptr
+			&& session.loadSession()->createsOverrides();
+
+		Bool isOverride = false;
+		const char* token = ini->getNextToken();
+		NameKeyType namekey = NAMEKEY(token);
+
+		LocomotorTemplate* loco = TheLocomotorStore->findLocomotorTemplate(namekey);
+		LocomotorTemplate* baseForRecord = loco;
+		if (loco)
+		{
+			if (createsOverride)
+			{
+				loco = TheLocomotorStore->newOverride((LocomotorTemplate*)loco->friend_getFinalOverride());
+			}
+			isOverride = true;
+		}
+		else
+		{
+			loco = newInstance(LocomotorTemplate);
+			if (createsOverride)
+			{
+				loco->markAsOverride();
+			}
+		}
+
+		loco->friend_setName(token);
+		ini->initFromINI(loco, loco->getFieldParse());
+		loco->validate();
+
+		// Insert into the map only on first definition; the override chain
+		// dangles off the original entry.
+		if (!isOverride)
+			TheLocomotorStore->m_locomotorTemplates[namekey] = loco;
+
+		// Record the override so the LoadSession's caller can enumerate
+		// what will be reverted on map unload. Per-store reset() still
+		// drives the actual revert via Overridable::deleteOverrides().
+		if (createsOverride && session.loadSession() != nullptr)
+		{
+			session.loadSession()->recordOverride(
+				baseForRecord, loco, session.loadSession()->mode() == INI2::LoadMode::MapOverride
+					? INI2::SourceLoc(ini->getFilename(), ini->getLineNum())
+					: INI2::SourceLoc());
+		}
+	}
+
+	INI2_REGISTER_BLOCK("Locomotor", &parseLocomotorTemplateDefinitionV2);
 }
 
 //-------------------------------------------------------------------------------------------------

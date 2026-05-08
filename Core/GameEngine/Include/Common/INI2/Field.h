@@ -35,6 +35,7 @@
 #include <type_traits>
 #include "Common/AsciiString.h"
 #include "Common/GameType.h"
+#include "Common/INI.h"          // FieldParse, INIFieldParseProc
 #include "Lib/BaseType.h"
 
 #include "Common/INI2/ParseContext.h"
@@ -83,11 +84,27 @@ public:
 	/// 'store' has already had this field's offset applied by the caller
 	/// (matching the legacy parser's calling convention at INI.cpp:1536).
 	virtual void parse(ParseContext& ctx, void* store) const = 0;
+
+	/// Emit a legacy FieldParse row equivalent to this field. Typed
+	/// fields (Field<T,V>) emit rows that route through legacyTrampoline<T>;
+	/// raw fields (RawField<T>) emit rows that point directly at a legacy
+	/// parser function with userData, bypassing the trampoline. This split
+	/// lets a single Schema mix typed primitive fields with legacy-style
+	/// fields (enum-name-table-driven parsers, custom parsers) — necessary
+	/// for migrating classes that have a few rows the typed system does
+	/// not yet cover.
+	virtual void emitLegacyRow(FieldParse& row) const = 0;
 };
 
 // ===========================================================================
 // Field<T,V>: typed field. Compile-time-checked binding to V T::*.
 // ===========================================================================
+//
+// Forward-declared so RawField can reference it before its full definition;
+// also lets the trampoline (LegacyAdapter.h) hold a FieldBase<T>* pointer
+// stably regardless of which concrete subclass a row uses.
+template <typename T> void legacyTrampoline(INI*, void*, void*, const void*);
+
 template <typename T, typename V>
 class Field final : public FieldBase<T>
 {
@@ -105,6 +122,14 @@ public:
 	void parse(ParseContext& ctx, void* store) const override
 	{
 		dispatchByUnit(ctx, *static_cast<V*>(store));
+	}
+
+	void emitLegacyRow(FieldParse& row) const override
+	{
+		row.token    = this->token;
+		row.parse    = &legacyTrampoline<T>;   // typed dispatch via FieldBase<T>::parse
+		row.userData = this;                    // trampoline casts back to FieldBase<T>*
+		row.offset   = static_cast<Int>(this->offset);
 	}
 
 private:
@@ -161,6 +186,51 @@ private:
 				}
 			}
 		}
+	}
+};
+
+// ===========================================================================
+// RawField<T>: legacy-style field. Holds a legacy parser function pointer
+// and a userData payload, emitted as a FieldParse row that bypasses the
+// trampoline. Used during migration for fields whose value type the typed
+// parseValue<V> system does not yet cover (enum/bit-flag tables driven by
+// userData, custom per-class parsers like Locomotor's parseFrictionPerSec).
+//
+// The compile-time pointer-to-member typing on the constructor still
+// guarantees the offset is correct for the named member. Only the parser
+// function and its userData are legacy.
+// ===========================================================================
+template <typename T>
+class RawField final : public FieldBase<T>
+{
+public:
+	INIFieldParseProc legacyParser  = nullptr;
+	const void*       legacyUserData = nullptr;
+
+	template <typename V>
+	RawField(const char* tok, V T::* mem,
+	         INIFieldParseProc parser, const void* userData)
+		: legacyParser(parser), legacyUserData(userData)
+	{
+		this->token  = tok;
+		this->offset = memberOffset(mem);
+	}
+
+	/// Used only if the typed dispatch ever routes here through
+	/// legacyTrampoline (it does not: emitLegacyRow points the row directly
+	/// at legacyParser, so this method is unreachable in practice). Provided
+	/// for completeness so the abstract base class is satisfied.
+	void parse(ParseContext& ctx, void* store) const override
+	{
+		legacyParser(ctx.legacy(), nullptr, store, legacyUserData);
+	}
+
+	void emitLegacyRow(FieldParse& row) const override
+	{
+		row.token    = this->token;
+		row.parse    = legacyParser;       // direct legacy parser; no trampoline
+		row.userData = legacyUserData;
+		row.offset   = static_cast<Int>(this->offset);
 	}
 };
 
